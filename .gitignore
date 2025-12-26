@@ -1,0 +1,44 @@
+# Android Studio
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Node.js / Backend
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+app/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
