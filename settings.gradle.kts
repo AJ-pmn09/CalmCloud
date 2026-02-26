@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Calm Cloud"
+rootProject.name = "Mindagile"
 include(":app")

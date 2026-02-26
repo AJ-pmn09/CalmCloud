@@ -1,0 +1,150 @@
+================================================================================
+  Mindagile: Start the server and connect the app
+================================================================================
+
+--- STEP 1: Start the server (on the VM / K-12 machine) ---
+
+On the machine where K-12 runs (e.g. vkasarla@MH at 192.168.100.6):
+
+  cd /home/vkasarla/Desktop/K-12
+  ./START_ALL.sh
+
+  OR start only databases + backend:
+
+  cd /home/vkasarla/Desktop/K-12
+  ./start-database-containers.sh
+  sleep 5
+  ./start-backend-host.sh
+
+What this does:
+  - Starts PostgreSQL containers (Horizons, Houghton, Calumet) on ports 5435, 5438, 5437 (or similar)
+  - Starts the backend on an available port (often 3003)
+  - Writes backend port to: /tmp/mindaigle_backend.$(id -u).port
+
+Check that the backend is up:
+
+  curl http://localhost:$(cat /tmp/mindaigle_backend.$(id -u).port 2>/dev/null || echo 3006)/api/health
+
+  (Port is in START_ALL output or: cat /tmp/mindaigle_backend.$(id -u).port — often 3006 if 3003 is in use)
+
+
+--- STEP 2: Note the server IP and port ---
+
+  Server IP:   The VM’s IP on your LAN (e.g. 192.168.100.6)
+  Server port: From START_ALL output or: cat /tmp/mindaigle_backend.$(id -u).port
+               (Often 3003; if in use, 3006, 3004, etc.)
+
+  Full API URL: http://<SERVER_IP>:<PORT>/api
+  Example:      http://192.168.100.6:3006/api
+
+
+--- STEP 3: Make the app use that server ---
+
+The app is set in app/build.gradle.kts to use:
+  - URL: http://192.168.100.6
+  - Port: 3006  (update this if START_ALL uses a different port)
+
+So it connects to: http://192.168.100.6:3006/api
+
+If your VM has a different IP or the backend runs on a different port:
+
+  Option A – Change in build config (then rebuild)
+    1. Open: app/build.gradle.kts
+    2. Set:
+        buildConfigField("String", "SERVER_URL", "\"http://YOUR_VM_IP\"")
+        buildConfigField("String", "SERVER_PORT", "\"YOUR_PORT\"")
+    3. Rebuild: ./gradlew assembleDebug
+
+  Option B – Debug override (if your build has ENABLE_DEBUG_CONFIG = true)
+    In the app (e.g. Settings or debug menu), if there is a “Server URL” or
+    “Server config” option, set URL and port there.
+
+
+--- STEP 4: Same network ---
+
+  - Phone/emulator must reach the VM on your LAN.
+  - VM and phone should be on the same Wi‑Fi (or network), or use an emulator
+    on the same machine as the backend (then use 10.0.2.2 for emulator to reach
+    host’s localhost).
+
+  Emulator on same machine as backend (no VM):
+    SERVER_URL = "http://10.0.2.2"   (Android emulator’s alias for host)
+    SERVER_PORT = "3006"
+
+
+--- STEP 5: Build and run the app ---
+
+  On your Mac (or where you build the app):
+
+  cd /path/to/Mindagile
+  ./gradlew assembleDebug
+
+  Install the APK on the device/emulator, then open the app and log in.
+  The app will call http://192.168.100.6:3006/api (or whatever you set in build.gradle.kts).
+
+
+--- Quick checklist ---
+
+  [ ] Backend running on VM: curl http://192.168.100.6:<PORT>/api/health returns JSON (PORT = START_ALL output, e.g. 3006)
+  [ ] app/build.gradle.kts has SERVER_URL = your VM IP and SERVER_PORT = same port as backend
+  [ ] Phone/emulator on same network as VM
+  [ ] App rebuilt after any build config change
+  [ ] Log in with a user that exists in the backend (e.g. emma.thompson@horizons.edu)
+
+
+--- Troubleshooting: App still “Cannot connect to server” ---
+
+Backend is running on the VM (e.g. port 3006) but the app cannot connect:
+
+1) Test from your Mac (same Wi‑Fi as the phone):
+     curl http://192.168.100.6:3006/api/health
+   If this fails (connection refused / timeout), the backend is not reachable from the network.
+
+2) Backend must listen on all interfaces (0.0.0.0), not only localhost.
+   Otherwise only the VM can reach it; the phone cannot.
+   In Node/Express: server.listen(PORT, '0.0.0.0', () => { ... });
+   On the VM, check backend source (e.g. backend/src/server.js) and ensure it uses 0.0.0.0.
+
+3) VM firewall: allow incoming TCP port 3006 (or whatever port START_ALL uses).
+   Example (Linux): sudo firewall-cmd --add-port=3006/tcp (or equivalent for your VM).
+
+4) Use the correct login email: emma.thompson@horizons.edu (two m’s, “horizons” with an s).
+
+
+--- Mac/phone: “Failed to connect” to 192.168.100.6:3006 ---
+
+If from your Mac you get:
+   curl: (7) Failed to connect to 192.168.100.6 port 3006 ... Couldn't connect to server
+
+then the app will fail too. Fix on the VM and network:
+
+A) Same network
+   From Mac: ping 192.168.100.6
+   If ping fails, Mac and VM are not on the same reachable network (different Wi‑Fi, VLAN, or VM not on 192.168.100.x from Mac’s view). Connect both to the same LAN/Wi‑Fi or fix routing.
+
+B) Open firewall on the VM (run on the VM)
+   Fedora/RHEL/CentOS (firewalld): add to the zone used by your LAN interface (often "public"):
+     sudo firewall-cmd --zone=public --add-port=3006/tcp --permanent
+     sudo firewall-cmd --reload
+   Then verify: sudo firewall-cmd --list-all  (3006/tcp should appear under "ports").
+   Ubuntu/Debian (ufw):
+     sudo ufw allow 3006/tcp
+     sudo ufw reload
+   Or temporarily disable firewall to test:
+     sudo systemctl stop firewalld   # or: sudo ufw disable
+
+C) Backend must listen on 0.0.0.0 (on the VM)
+   If the firewall is open but curl from the Mac still fails, the backend is likely
+   bound to 127.0.0.1 only. On the VM, check:
+     ss -tlnp | grep 3006
+   You want to see 0.0.0.0:3006 (not 127.0.0.1:3006).
+   In backend code (e.g. backend/src/server.js or index.js), ensure:
+     server.listen(PORT, '0.0.0.0', () => { ... });
+   If you have listen(PORT) or listen(PORT, 'localhost'), change to 0.0.0.0,
+   then restart the backend (./START_ALL.sh or ./start-backend-host.sh).
+
+D) After fixing, test again from Mac:
+   curl http://192.168.100.6:3006/api/health
+   You should see JSON. Then the app on the same Wi‑Fi should connect.
+
+================================================================================

@@ -1,0 +1,40 @@
+================================================================================
+  Find which port the BACKEND API is on (returns JSON, not HTML)
+================================================================================
+
+On the VM, both 3003 and 3006 may be the frontend (Vite). The backend returns
+JSON for /api/health; the frontend returns HTML.
+
+--- Step 1: List all ports that node is listening on ---
+
+  ss -tlnp | grep node
+
+You'll see lines like:
+  *:3003   ... node
+  *:3006   ... node
+
+--- Step 2: Test /api/health on each port until you get JSON ---
+
+  curl -s http://localhost:3003/api/health
+  curl -s http://localhost:3006/api/health
+  curl -s http://localhost:3009/api/health
+  curl -s http://localhost:3002/api/health
+
+When you see something like:
+  {"success":true,"status":"ok","database":"connected",...}
+
+that port is the BACKEND. Use that port in the app (build.gradle.kts SERVER_PORT)
+and open it in the firewall.
+
+--- Step 3: If all return HTML, the backend may not be running ---
+
+  cd /home/vkasarla/Desktop/K-12
+  ./START_ALL.sh
+
+Watch the output for "Backend API: http://localhost:XXXX/api" and use XXXX.
+Then immediately run: curl -s http://localhost:XXXX/api/health
+If that returns JSON, use XXXX in the app. If it still returns HTML, the start
+script may be starting the frontend on that port—check the VM's start-backend-host.sh
+to see which port the backend is started on.
+
+================================================================================

@@ -1,0 +1,65 @@
+# Confirm which auth.js the running backend uses
+
+The login response still has no token, so the running process may be loading
+a different auth file (e.g. backend/routes/auth.js vs backend/src/routes/auth.js).
+
+## 1. Run the updated patch (patches BOTH auth files if both exist)
+
+  cd /home/vkasarla/Desktop/K-12/backend
+  node apply-login-token-patch.js
+
+  If you see "Patched: ..." for more than one file, both locations are now fixed.
+
+## 2. See how the backend is started
+
+  cat /home/vkasarla/Desktop/K-12/start-backend-host.sh
+
+  Note the exact command (e.g. "node src/server.js" or "node index.js") and
+  the directory it runs from (often "cd backend" or "cd K-12").
+
+## 3. See which process is on the backend port (e.g. 3009)
+
+  PORT=3009
+  ss -tlnp | grep ":$PORT " || netstat -tlnp 2>/dev/null | grep ":$PORT "
+
+  Or: lsof -i :3009
+
+  Note the PID. Then see its working directory:
+
+  ls -l /proc/<PID>/cwd
+
+  So the running code is under that directory (e.g. backend/ or K-12/backend/).
+
+## 4. Ensure login-success-with-token.js is where require() will find it
+
+  - If the server runs from backend/ and loads backend/src/routes/auth.js,
+    auth.js does require('../../login-success-with-token'), which resolves to
+    backend/login-success-with-token.js. So keep a copy in backend/.
+
+  - If the server runs from K-12/ and loads backend/src/routes/auth.js, the
+    same require still resolves to backend/login-success-with-token.js (path
+    is relative to the auth.js file). So backend/login-success-with-token.js
+    is correct.
+
+  - If the server loads backend/routes/auth.js (no "src"), that file does
+    require('../login-success-with-token'), so backend/login-success-with-token.js
+    is again correct.
+
+  So one copy in backend/ is enough. The patch script now patches both
+  backend/routes/auth.js and backend/src/routes/auth.js if both exist.
+
+## 5. Restart so the new code is loaded
+
+  cd /home/vkasarla/Desktop/K-12
+  ./STOP_ALL.sh
+  ./START_ALL.sh
+
+  Then test:
+
+  curl -s -X POST http://localhost:3009/api/auth/login \
+    -H "Content-Type: application/json" \
+    -d '{"email":"emma.thompson@horizons.edu","password":"Student123!"}'
+
+  You should see "token" in the JSON. If not, check backend logs (path shown
+  by START_ALL, e.g. tail -f backend.log or ../backend.1014.log) for errors
+  when you hit login (e.g. "Cannot find module" or sendLoginSuccess errors).

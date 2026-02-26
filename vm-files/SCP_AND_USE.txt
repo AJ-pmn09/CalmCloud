@@ -1,0 +1,108 @@
+================================================================================
+  Copy login fix to VM, then save and restart
+================================================================================
+
+--- Optional: Copy start-backend-on-3006.sh to always run backend on port 3006 ---
+
+From your Mac:
+  scp /Users/madhava/AndroidStudioProjects/MyApplication/Mindagile/vm-files/start-backend-on-3006.sh vkasarla@192.168.100.6:/home/vkasarla/Desktop/K-12/
+
+On the VM:
+  chmod +x /home/vkasarla/Desktop/K-12/start-backend-on-3006.sh
+  cd /home/vkasarla/Desktop/K-12
+  ./start-backend-on-3006.sh
+
+Then open firewall for 3006: sudo firewall-cmd --zone=public --add-port=3006/tcp --permanent && sudo firewall-cmd --reload
+
+--------------------------------------------------------------------------------
+
+--- STEP 1: From your Mac, copy BOTH files to the VM backend ---
+
+Run these in Terminal ON YOUR MAC:
+
+  scp /Users/madhava/AndroidStudioProjects/MyApplication/Mindagile/vm-files/login-success-with-token.js vkasarla@192.168.100.6:/home/vkasarla/Desktop/K-12/backend/
+
+  scp /Users/madhava/AndroidStudioProjects/MyApplication/Mindagile/vm-files/apply-login-token-patch.js vkasarla@192.168.100.6:/home/vkasarla/Desktop/K-12/backend/
+
+(You may be asked for vkasarla's password.)
+
+
+--- STEP 2: On the VM, install jsonwebtoken and run the patch (no manual edit) ---
+
+  ssh vkasarla@192.168.100.6
+
+  cd /home/vkasarla/Desktop/K-12/backend
+  npm install jsonwebtoken
+  node apply-login-token-patch.js
+
+The script adds the require and replaces the login success response automatically.
+
+
+--- STEP 3: On the VM, restart the backend ---
+
+  cd /home/vkasarla/Desktop/K-12
+  ./START_ALL.sh
+
+
+--- STEP 4: Test login (on the VM; use your backend port, e.g. 3009) ---
+
+  curl -s -X POST http://localhost:3009/api/auth/login \
+    -H "Content-Type: application/json" \
+    -d '{"email":"emma.thompson@horizons.edu","password":"Student123!"}'
+
+You should see "token":"eyJ..." in the response. Then the app will work.
+
+If the patch script says it could not find a pattern to replace, edit auth.js manually:
+  Add at top: const { sendLoginSuccess } = require('../login-success-with-token');
+  Replace the login success res.json(...) with: sendLoginSuccess(res, user).
+
+--------------------------------------------------------------------------------
+
+--- If login still returns no token: use INLINE patch (no external file) ---
+
+The running backend may load auth from a different path. Use the inline patch so
+JWT logic lives inside auth.js and no require path is needed.
+
+From your Mac:
+  scp /Users/madhava/AndroidStudioProjects/MyApplication/Mindagile/vm-files/apply-login-token-inline-patch.js vkasarla@192.168.100.6:/home/vkasarla/Desktop/K-12/backend/
+
+On the VM:
+  cd /home/vkasarla/Desktop/K-12/backend
+  npm install jsonwebtoken   # if not already
+  node apply-login-token-inline-patch.js
+  cd /home/vkasarla/Desktop/K-12
+  ./STOP_ALL.sh
+  ./START_ALL.sh
+
+Then test login again (curl as in STEP 4). Response should include "token":"eyJ...".
+
+--------------------------------------------------------------------------------
+
+--- RECOMMENDED: Add token via middleware (works no matter which auth file runs) ---
+
+This fixes the response in the main app so the auth route file does not need to be
+patched. Copy the middleware file to the VM, then add two lines to the main server
+file (index.js or server.js or app.js - wherever routes are mounted).
+
+From your Mac:
+  scp /Users/madhava/AndroidStudioProjects/MyApplication/Mindagile/vm-files/add-login-token-middleware.js vkasarla@192.168.100.6:/home/vkasarla/Desktop/K-12/backend/
+
+On the VM, find where auth routes are mounted. It might look like:
+  app.use('/api/auth', authRoutes);
+  or
+  app.use('/api/auth', require('./routes/auth'));
+
+Add the middleware BEFORE that line. Example:
+
+  const addLoginToken = require('./add-login-token-middleware');
+  app.use('/api/auth', addLoginToken);
+  app.use('/api/auth', authRoutes);
+
+If the main file is in a subfolder (e.g. backend/src/server.js), put
+add-login-token-middleware.js in that same folder and use:
+  const addLoginToken = require('./add-login-token-middleware');
+
+Then: npm install jsonwebtoken (in backend), restart backend (STOP_ALL then START_ALL),
+and test login (curl as in STEP 4). Response will include "token":"eyJ...".
+
+================================================================================

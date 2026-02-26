@@ -1,0 +1,4796 @@
+{
+  "horizons": {
+    "database": "mindaigle_horizons",
+    "host": "localhost",
+    "port": 5433,
+    "tables": {
+      "users": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('users_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "password_hash",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 8
+          },
+          {
+            "name": "email_verified",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "false",
+            "position": 9
+          },
+          {
+            "name": "last_login",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 15
+          }
+        ],
+        "constraints": [
+          {
+            "name": "users_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "users_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "users",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_users_google_calendar",
+            "definition": "CREATE INDEX idx_users_google_calendar ON public.users USING btree (google_calendar_url) WHERE (google_calendar_url IS NOT NULL)"
+          },
+          {
+            "name": "idx_users_school_id",
+            "definition": "CREATE INDEX idx_users_school_id ON public.users USING btree (school_id)"
+          },
+          {
+            "name": "users_email_key",
+            "definition": "CREATE UNIQUE INDEX users_email_key ON public.users USING btree (email)"
+          },
+          {
+            "name": "users_pkey",
+            "definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+          }
+        ],
+        "rowCount": 26,
+        "sampleData": [
+          {
+            "id": 37,
+            "email": "james.martinez@horizon.edu",
+            "password_hash": "$2b$10$eEU9lwUFBSvwqklWiFnvh.WfCqhsWBbPczTcqwU3qGtxp27ANb0n6",
+            "role": "student",
+            "first_name": null,
+            "last_name": null,
+            "phone": null,
+            "is_active": true,
+            "email_verified": false,
+            "last_login": null,
+            "school_id": null,
+            "created_at": "2025-12-27T04:13:12.441Z",
+            "updated_at": "2026-01-10T02:09:54.789Z",
+            "profile_picture_url": null,
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "students": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('students_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "user_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "date_of_birth",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "grade",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "student_email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "counselor_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "emergency_contact_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "emergency_contact_phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          },
+          {
+            "name": "location",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 15
+          },
+          {
+            "name": "reminder_enabled",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 16
+          },
+          {
+            "name": "reminder_interval_hours",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "24",
+            "position": 17
+          },
+          {
+            "name": "last_missed_checkin_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 18
+          },
+          {
+            "name": "last_reminder_sent_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 19
+          },
+          {
+            "name": "reminder_config_updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 20
+          }
+        ],
+        "constraints": [
+          {
+            "name": "students_counselor_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "counselor_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_user_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "user_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_students_school_id",
+            "definition": "CREATE INDEX idx_students_school_id ON public.students USING btree (school_id)"
+          },
+          {
+            "name": "idx_students_user_id",
+            "definition": "CREATE INDEX idx_students_user_id ON public.students USING btree (user_id)"
+          },
+          {
+            "name": "students_pkey",
+            "definition": "CREATE UNIQUE INDEX students_pkey ON public.students USING btree (id)"
+          }
+        ],
+        "rowCount": 4,
+        "sampleData": [
+          {
+            "id": 21,
+            "user_id": 37,
+            "first_name": "James",
+            "last_name": "Martinez",
+            "date_of_birth": "2009-07-22T04:00:00.000Z",
+            "grade": 10,
+            "school_id": 1,
+            "student_email": null,
+            "counselor_id": null,
+            "emergency_contact_name": null,
+            "emergency_contact_phone": null,
+            "is_active": true,
+            "profile_picture_url": "/images/students/James_Martinez.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.442Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2026-01-10T02:09:54.902Z"
+          }
+        ]
+      },
+      "daily_checkins": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('daily_checkins_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "mood_rating",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "additional_notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "mood",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          }
+        ],
+        "constraints": [
+          {
+            "name": "daily_checkins_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "daily_checkins_pkey",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_pkey ON public.daily_checkins USING btree (id)"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_student_date_unique ON public.daily_checkins USING btree (student_id, date)"
+          },
+          {
+            "name": "idx_daily_checkins_date",
+            "definition": "CREATE INDEX idx_daily_checkins_date ON public.daily_checkins USING btree (date)"
+          },
+          {
+            "name": "idx_daily_checkins_student_id",
+            "definition": "CREATE INDEX idx_daily_checkins_student_id ON public.daily_checkins USING btree (student_id)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 279,
+            "student_id": 20,
+            "date": "2025-12-21T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 2,
+            "stress_source": null,
+            "additional_notes": "Emotion: frustrated, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.531Z",
+            "mood": null
+          }
+        ]
+      },
+      "activity_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('activity_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 4
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 5
+          },
+          {
+            "name": "hydration_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 6
+          },
+          {
+            "name": "nutrition_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "mood",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 12
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "activity_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "activity_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX activity_logs_pkey ON public.activity_logs USING btree (id)"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX activity_logs_student_date_unique ON public.activity_logs USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 246,
+            "student_id": 20,
+            "date": "2025-12-21T05:00:00.000Z",
+            "steps": 14170,
+            "sleep_hours": "8.28",
+            "hydration_percent": 84,
+            "nutrition_percent": 84,
+            "created_at": "2025-12-27T22:24:02.531Z",
+            "stress_level": 3,
+            "stress_source": null,
+            "heart_rate": 90,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-21"
+          }
+        ]
+      },
+      "wearable_data": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wearable_data_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "temperature",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wearable_data_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wearable_data_student_id",
+            "definition": "CREATE INDEX idx_wearable_data_student_id ON public.wearable_data USING btree (student_id)"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "definition": "CREATE UNIQUE INDEX wearable_data_pkey ON public.wearable_data USING btree (id)"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX wearable_data_student_date_unique ON public.wearable_data USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "wellness_scores": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wellness_scores_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "score",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "sentiment",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wellness_scores_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wellness_scores",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wellness_scores_date",
+            "definition": "CREATE INDEX idx_wellness_scores_date ON public.wellness_scores USING btree (date)"
+          },
+          {
+            "name": "idx_wellness_scores_student_id",
+            "definition": "CREATE INDEX idx_wellness_scores_student_id ON public.wellness_scores USING btree (student_id)"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "definition": "CREATE UNIQUE INDEX wellness_scores_pkey ON public.wellness_scores USING btree (id)"
+          }
+        ],
+        "rowCount": 13,
+        "sampleData": [
+          {
+            "id": 40,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "score": 68,
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:23:57.945Z"
+          }
+        ]
+      },
+      "symptom_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('symptom_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "symptom_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "severity",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "symptom_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "symptom_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "symptom_logs",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "symptom_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX symptom_logs_pkey ON public.symptom_logs USING btree (id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "assistance_requests": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('assistance_requests_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "parent_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "maxLength": null,
+            "nullable": false,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "urgency",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'normal'::character varying",
+            "position": 6
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'pending'::character varying",
+            "position": 7
+          },
+          {
+            "name": "handled_by",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "handled_by_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "handled_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "assistance_requests_handled_by_fkey",
+            "type": "FOREIGN KEY",
+            "column": "handled_by",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_parent_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "parent_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "assistance_requests",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "assistance_requests_pkey",
+            "definition": "CREATE UNIQUE INDEX assistance_requests_pkey ON public.assistance_requests USING btree (id)"
+          },
+          {
+            "name": "idx_assistance_requests_student",
+            "definition": "CREATE INDEX idx_assistance_requests_student ON public.assistance_requests USING btree (student_id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "parents": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('parents_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "profile_pic",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "parents_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "parents",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "parents_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "parents",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_parents_email",
+            "definition": "CREATE INDEX idx_parents_email ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_email_key",
+            "definition": "CREATE UNIQUE INDEX parents_email_key ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_pkey",
+            "definition": "CREATE UNIQUE INDEX parents_pkey ON public.parents USING btree (id)"
+          }
+        ],
+        "rowCount": 10,
+        "sampleData": [
+          {
+            "id": 1,
+            "first_name": "Sarah",
+            "last_name": "Thompson",
+            "email": "sarah.thompson@email.com",
+            "profile_pic": "/images/parents/Sarah_Thompson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2026-01-10T06:33:08.719Z"
+          }
+        ]
+      },
+      "associates": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('associates_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "associate_id",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "associates_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "associates_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "associates",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "associates_pkey",
+            "definition": "CREATE UNIQUE INDEX associates_pkey ON public.associates USING btree (id)"
+          },
+          {
+            "name": "idx_associates_school_id",
+            "definition": "CREATE INDEX idx_associates_school_id ON public.associates USING btree (school_id)"
+          }
+        ],
+        "rowCount": 2,
+        "sampleData": [
+          {
+            "id": 2,
+            "email": "michael.johnson@calmcloud.org",
+            "associate_id": "michael.johnson@school.edu",
+            "school_id": 1,
+            "role": "associate",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "schools": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('schools_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "district",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "city",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "state",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "zip_code",
+            "type": "character varying",
+            "maxLength": 20,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "latitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "longitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 14
+          }
+        ],
+        "constraints": [
+          {
+            "name": "schools_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "schools_pkey",
+            "definition": "CREATE UNIQUE INDEX schools_pkey ON public.schools USING btree (id)"
+          }
+        ],
+        "rowCount": 1,
+        "sampleData": [
+          {
+            "id": 1,
+            "name": "Horizons",
+            "district": "Houghton-Portage Township School District",
+            "address": null,
+            "city": "Houghton",
+            "state": "MI",
+            "zip_code": null,
+            "phone": null,
+            "email": null,
+            "latitude": null,
+            "longitude": null,
+            "is_active": true,
+            "created_at": "2026-01-10T01:34:28.155Z",
+            "updated_at": "2026-01-10T01:34:28.155Z"
+          }
+        ]
+      },
+      "fhir_observations": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "communications": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "reminders": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "emergency_alerts": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      }
+    }
+  },
+  "houghton": {
+    "database": "mindaigle_houghton",
+    "host": "localhost",
+    "port": 5436,
+    "tables": {
+      "users": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('users_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "password_hash",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 8
+          },
+          {
+            "name": "email_verified",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "false",
+            "position": 9
+          },
+          {
+            "name": "last_login",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 15
+          }
+        ],
+        "constraints": [
+          {
+            "name": "users_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "users_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "users",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_users_google_calendar",
+            "definition": "CREATE INDEX idx_users_google_calendar ON public.users USING btree (google_calendar_url) WHERE (google_calendar_url IS NOT NULL)"
+          },
+          {
+            "name": "idx_users_school_id",
+            "definition": "CREATE INDEX idx_users_school_id ON public.users USING btree (school_id)"
+          },
+          {
+            "name": "users_email_key",
+            "definition": "CREATE UNIQUE INDEX users_email_key ON public.users USING btree (email)"
+          },
+          {
+            "name": "users_pkey",
+            "definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+          }
+        ],
+        "rowCount": 21,
+        "sampleData": [
+          {
+            "id": 40,
+            "email": "olivia.williams@houghton.edu",
+            "password_hash": "$2b$10$5/66qdk.l665ZhLgMey8JunBxXZkgH4JzePLbHvuPHEd2napaPINK",
+            "role": "student",
+            "first_name": null,
+            "last_name": null,
+            "phone": null,
+            "is_active": true,
+            "email_verified": false,
+            "last_login": null,
+            "school_id": null,
+            "created_at": "2025-12-27T04:13:12.588Z",
+            "updated_at": "2026-01-10T02:09:55.240Z",
+            "profile_picture_url": null,
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "students": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('students_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "user_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "date_of_birth",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "grade",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "student_email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "counselor_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "emergency_contact_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "emergency_contact_phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          },
+          {
+            "name": "location",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 15
+          },
+          {
+            "name": "reminder_enabled",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 16
+          },
+          {
+            "name": "reminder_interval_hours",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "24",
+            "position": 17
+          },
+          {
+            "name": "last_missed_checkin_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 18
+          },
+          {
+            "name": "last_reminder_sent_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 19
+          },
+          {
+            "name": "reminder_config_updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 20
+          }
+        ],
+        "constraints": [
+          {
+            "name": "students_counselor_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "counselor_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_user_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "user_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_students_school_id",
+            "definition": "CREATE INDEX idx_students_school_id ON public.students USING btree (school_id)"
+          },
+          {
+            "name": "idx_students_user_id",
+            "definition": "CREATE INDEX idx_students_user_id ON public.students USING btree (user_id)"
+          },
+          {
+            "name": "students_pkey",
+            "definition": "CREATE UNIQUE INDEX students_pkey ON public.students USING btree (id)"
+          }
+        ],
+        "rowCount": 4,
+        "sampleData": [
+          {
+            "id": 24,
+            "user_id": 40,
+            "first_name": "Olivia",
+            "last_name": "Williams",
+            "date_of_birth": "2010-01-18T05:00:00.000Z",
+            "grade": 9,
+            "school_id": 1,
+            "student_email": null,
+            "counselor_id": null,
+            "emergency_contact_name": null,
+            "emergency_contact_phone": null,
+            "is_active": true,
+            "profile_picture_url": "/images/students/Olivia_Williams.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.589Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2026-01-10T02:10:45.978Z"
+          }
+        ]
+      },
+      "daily_checkins": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('daily_checkins_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "mood_rating",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "additional_notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "mood",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          }
+        ],
+        "constraints": [
+          {
+            "name": "daily_checkins_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "daily_checkins_pkey",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_pkey ON public.daily_checkins USING btree (id)"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_student_date_unique ON public.daily_checkins USING btree (student_id, date)"
+          },
+          {
+            "name": "idx_daily_checkins_date",
+            "definition": "CREATE INDEX idx_daily_checkins_date ON public.daily_checkins USING btree (date)"
+          },
+          {
+            "name": "idx_daily_checkins_student_id",
+            "definition": "CREATE INDEX idx_daily_checkins_student_id ON public.daily_checkins USING btree (student_id)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 33,
+            "student_id": 24,
+            "date": "2026-01-09T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 3,
+            "stress_source": "work",
+            "additional_notes": "Daily check-in for 2026-01-09",
+            "created_at": "2026-01-09T15:00:00.000Z",
+            "mood": null
+          }
+        ]
+      },
+      "activity_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('activity_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 4
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 5
+          },
+          {
+            "name": "hydration_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 6
+          },
+          {
+            "name": "nutrition_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "mood",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 12
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "activity_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "activity_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX activity_logs_pkey ON public.activity_logs USING btree (id)"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX activity_logs_student_date_unique ON public.activity_logs USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 33,
+            "student_id": 24,
+            "date": "2026-01-09T05:00:00.000Z",
+            "steps": 8183,
+            "sleep_hours": "6.24",
+            "hydration_percent": 68,
+            "nutrition_percent": 83,
+            "created_at": "2026-01-09T23:00:00.000Z",
+            "stress_level": 3,
+            "stress_source": null,
+            "heart_rate": 70,
+            "mood": "energetic",
+            "notes": "Activity log for 2026-01-09"
+          }
+        ]
+      },
+      "wearable_data": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wearable_data_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "temperature",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wearable_data_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wearable_data_student_id",
+            "definition": "CREATE INDEX idx_wearable_data_student_id ON public.wearable_data USING btree (student_id)"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "definition": "CREATE UNIQUE INDEX wearable_data_pkey ON public.wearable_data USING btree (id)"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX wearable_data_student_date_unique ON public.wearable_data USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "wellness_scores": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wellness_scores_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "score",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "sentiment",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wellness_scores_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wellness_scores",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wellness_scores_date",
+            "definition": "CREATE INDEX idx_wellness_scores_date ON public.wellness_scores USING btree (date)"
+          },
+          {
+            "name": "idx_wellness_scores_student_id",
+            "definition": "CREATE INDEX idx_wellness_scores_student_id ON public.wellness_scores USING btree (student_id)"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "definition": "CREATE UNIQUE INDEX wellness_scores_pkey ON public.wellness_scores USING btree (id)"
+          }
+        ],
+        "rowCount": 20,
+        "sampleData": [
+          {
+            "id": 15,
+            "student_id": 24,
+            "date": "2026-01-09T05:00:00.000Z",
+            "score": 62,
+            "sentiment": "positive",
+            "created_at": "2026-01-09T17:00:00.000Z"
+          }
+        ]
+      },
+      "symptom_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('symptom_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "symptom_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "severity",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "symptom_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "symptom_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "symptom_logs",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "symptom_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX symptom_logs_pkey ON public.symptom_logs USING btree (id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "assistance_requests": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('assistance_requests_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "parent_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "maxLength": null,
+            "nullable": false,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "urgency",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'normal'::character varying",
+            "position": 6
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'pending'::character varying",
+            "position": 7
+          },
+          {
+            "name": "handled_by",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "handled_by_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "handled_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "assistance_requests_handled_by_fkey",
+            "type": "FOREIGN KEY",
+            "column": "handled_by",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_parent_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "parent_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "assistance_requests",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "assistance_requests_pkey",
+            "definition": "CREATE UNIQUE INDEX assistance_requests_pkey ON public.assistance_requests USING btree (id)"
+          },
+          {
+            "name": "idx_assistance_requests_student",
+            "definition": "CREATE INDEX idx_assistance_requests_student ON public.assistance_requests USING btree (student_id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "parents": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('parents_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "profile_pic",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "parents_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "parents",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "parents_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "parents",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_parents_email",
+            "definition": "CREATE INDEX idx_parents_email ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_email_key",
+            "definition": "CREATE UNIQUE INDEX parents_email_key ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_pkey",
+            "definition": "CREATE UNIQUE INDEX parents_pkey ON public.parents USING btree (id)"
+          }
+        ],
+        "rowCount": 10,
+        "sampleData": [
+          {
+            "id": 1,
+            "first_name": "Sarah",
+            "last_name": "Thompson",
+            "email": "sarah.thompson@email.com",
+            "profile_pic": "/images/parents/Sarah_Thompson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2026-01-10T06:33:52.513Z"
+          }
+        ]
+      },
+      "associates": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('associates_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "associate_id",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "associates_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "associates_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "associates",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "associates_pkey",
+            "definition": "CREATE UNIQUE INDEX associates_pkey ON public.associates USING btree (id)"
+          },
+          {
+            "name": "idx_associates_school_id",
+            "definition": "CREATE INDEX idx_associates_school_id ON public.associates USING btree (school_id)"
+          }
+        ],
+        "rowCount": 1,
+        "sampleData": [
+          {
+            "id": 1,
+            "email": "lisa.martinez@calmcloud.org",
+            "associate_id": "lisa.martinez@school.edu",
+            "school_id": 1,
+            "role": "associate",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "schools": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('schools_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "district",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "city",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "state",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "zip_code",
+            "type": "character varying",
+            "maxLength": 20,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "latitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "longitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 14
+          }
+        ],
+        "constraints": [
+          {
+            "name": "schools_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "schools_pkey",
+            "definition": "CREATE UNIQUE INDEX schools_pkey ON public.schools USING btree (id)"
+          }
+        ],
+        "rowCount": 1,
+        "sampleData": [
+          {
+            "id": 1,
+            "name": "Houghton High School",
+            "district": "Houghton-Portage Township School District",
+            "address": null,
+            "city": "Houghton",
+            "state": "MI",
+            "zip_code": null,
+            "phone": null,
+            "email": null,
+            "latitude": null,
+            "longitude": null,
+            "is_active": true,
+            "created_at": "2026-01-10T01:34:28.433Z",
+            "updated_at": "2026-01-10T01:34:28.433Z"
+          }
+        ]
+      },
+      "fhir_observations": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "communications": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "reminders": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "emergency_alerts": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      }
+    }
+  },
+  "calumet": {
+    "database": "mindaigle_calumet",
+    "host": "localhost",
+    "port": 5434,
+    "tables": {
+      "users": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('users_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "password_hash",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 8
+          },
+          {
+            "name": "email_verified",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "false",
+            "position": 9
+          },
+          {
+            "name": "last_login",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 15
+          }
+        ],
+        "constraints": [
+          {
+            "name": "users_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "users_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "users",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_users_google_calendar",
+            "definition": "CREATE INDEX idx_users_google_calendar ON public.users USING btree (google_calendar_url) WHERE (google_calendar_url IS NOT NULL)"
+          },
+          {
+            "name": "idx_users_school_id",
+            "definition": "CREATE INDEX idx_users_school_id ON public.users USING btree (school_id)"
+          },
+          {
+            "name": "users_email_key",
+            "definition": "CREATE UNIQUE INDEX users_email_key ON public.users USING btree (email)"
+          },
+          {
+            "name": "users_pkey",
+            "definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+          }
+        ],
+        "rowCount": 21,
+        "sampleData": [
+          {
+            "id": 44,
+            "email": "isabella.rodriguez@calumet.edu",
+            "password_hash": "$2b$10$RQA0wTAHkqFQN9rLcTYaneqE8848HaD0rVWp7jS943Ga0A4dz6Qtq",
+            "role": "student",
+            "first_name": null,
+            "last_name": null,
+            "phone": null,
+            "is_active": true,
+            "email_verified": false,
+            "last_login": null,
+            "school_id": null,
+            "created_at": "2025-12-27T04:13:12.782Z",
+            "updated_at": "2026-01-10T02:09:55.840Z",
+            "profile_picture_url": null,
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "students": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('students_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "user_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "date_of_birth",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "grade",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "student_email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "counselor_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "emergency_contact_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "emergency_contact_phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          },
+          {
+            "name": "location",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 14
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 15
+          },
+          {
+            "name": "reminder_enabled",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 16
+          },
+          {
+            "name": "reminder_interval_hours",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "24",
+            "position": 17
+          },
+          {
+            "name": "last_missed_checkin_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 18
+          },
+          {
+            "name": "last_reminder_sent_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 19
+          },
+          {
+            "name": "reminder_config_updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 20
+          }
+        ],
+        "constraints": [
+          {
+            "name": "students_counselor_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "counselor_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_user_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "user_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "students_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_students_school_id",
+            "definition": "CREATE INDEX idx_students_school_id ON public.students USING btree (school_id)"
+          },
+          {
+            "name": "idx_students_user_id",
+            "definition": "CREATE INDEX idx_students_user_id ON public.students USING btree (user_id)"
+          },
+          {
+            "name": "students_pkey",
+            "definition": "CREATE UNIQUE INDEX students_pkey ON public.students USING btree (id)"
+          }
+        ],
+        "rowCount": 4,
+        "sampleData": [
+          {
+            "id": 28,
+            "user_id": 44,
+            "first_name": "Isabella",
+            "last_name": "Rodriguez",
+            "date_of_birth": "2012-06-20T04:00:00.000Z",
+            "grade": 6,
+            "school_id": 1,
+            "student_email": null,
+            "counselor_id": null,
+            "emergency_contact_name": null,
+            "emergency_contact_phone": null,
+            "is_active": true,
+            "profile_picture_url": "/images/students/Isabella_Rodriguez.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.783Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2026-01-10T02:10:46.530Z"
+          }
+        ]
+      },
+      "daily_checkins": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('daily_checkins_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "mood_rating",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "additional_notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "mood",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          }
+        ],
+        "constraints": [
+          {
+            "name": "daily_checkins_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "daily_checkins",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "daily_checkins_pkey",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_pkey ON public.daily_checkins USING btree (id)"
+          },
+          {
+            "name": "daily_checkins_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX daily_checkins_student_date_unique ON public.daily_checkins USING btree (student_id, date)"
+          },
+          {
+            "name": "idx_daily_checkins_date",
+            "definition": "CREATE INDEX idx_daily_checkins_date ON public.daily_checkins USING btree (date)"
+          },
+          {
+            "name": "idx_daily_checkins_student_id",
+            "definition": "CREATE INDEX idx_daily_checkins_student_id ON public.daily_checkins USING btree (student_id)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 33,
+            "student_id": 28,
+            "date": "2026-01-09T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 2,
+            "stress_source": null,
+            "additional_notes": "Daily check-in for 2026-01-09",
+            "created_at": "2026-01-09T15:00:00.000Z",
+            "mood": null
+          }
+        ]
+      },
+      "activity_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('activity_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 4
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 5
+          },
+          {
+            "name": "hydration_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 6
+          },
+          {
+            "name": "nutrition_percent",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": "0",
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "mood",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 12
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "activity_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "activity_logs",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "activity_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX activity_logs_pkey ON public.activity_logs USING btree (id)"
+          },
+          {
+            "name": "activity_logs_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX activity_logs_student_date_unique ON public.activity_logs USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 28,
+        "sampleData": [
+          {
+            "id": 33,
+            "student_id": 28,
+            "date": "2026-01-09T05:00:00.000Z",
+            "steps": 6495,
+            "sleep_hours": "7.22",
+            "hydration_percent": 97,
+            "nutrition_percent": 96,
+            "created_at": "2026-01-09T23:00:00.000Z",
+            "stress_level": 3,
+            "stress_source": null,
+            "heart_rate": 67,
+            "mood": "calm",
+            "notes": "Activity log for 2026-01-09"
+          }
+        ]
+      },
+      "wearable_data": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wearable_data_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "temperature",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 8
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wearable_data_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "student_id",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "student_id"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "type": "UNIQUE",
+            "column": "date",
+            "foreignTable": "wearable_data",
+            "foreignColumn": "date"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wearable_data_student_id",
+            "definition": "CREATE INDEX idx_wearable_data_student_id ON public.wearable_data USING btree (student_id)"
+          },
+          {
+            "name": "wearable_data_pkey",
+            "definition": "CREATE UNIQUE INDEX wearable_data_pkey ON public.wearable_data USING btree (id)"
+          },
+          {
+            "name": "wearable_data_student_date_unique",
+            "definition": "CREATE UNIQUE INDEX wearable_data_student_date_unique ON public.wearable_data USING btree (student_id, date)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "wellness_scores": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('wellness_scores_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "score",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "sentiment",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          }
+        ],
+        "constraints": [
+          {
+            "name": "wellness_scores_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "wellness_scores",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_wellness_scores_date",
+            "definition": "CREATE INDEX idx_wellness_scores_date ON public.wellness_scores USING btree (date)"
+          },
+          {
+            "name": "idx_wellness_scores_student_id",
+            "definition": "CREATE INDEX idx_wellness_scores_student_id ON public.wellness_scores USING btree (student_id)"
+          },
+          {
+            "name": "wellness_scores_pkey",
+            "definition": "CREATE UNIQUE INDEX wellness_scores_pkey ON public.wellness_scores USING btree (id)"
+          }
+        ],
+        "rowCount": 20,
+        "sampleData": [
+          {
+            "id": 15,
+            "student_id": 28,
+            "date": "2026-01-09T05:00:00.000Z",
+            "score": 70,
+            "sentiment": "calm",
+            "created_at": "2026-01-09T17:00:00.000Z"
+          }
+        ]
+      },
+      "symptom_logs": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('symptom_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "symptom_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "severity",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "symptom_logs_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "symptom_logs_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "symptom_logs",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "symptom_logs_pkey",
+            "definition": "CREATE UNIQUE INDEX symptom_logs_pkey ON public.symptom_logs USING btree (id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "assistance_requests": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('assistance_requests_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "parent_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "maxLength": null,
+            "nullable": false,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "urgency",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'normal'::character varying",
+            "position": 6
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": "'pending'::character varying",
+            "position": 7
+          },
+          {
+            "name": "handled_by",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "handled_by_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "handled_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "name": "assistance_requests_handled_by_fkey",
+            "type": "FOREIGN KEY",
+            "column": "handled_by",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_parent_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "parent_id",
+            "foreignTable": "users",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_student_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "student_id",
+            "foreignTable": "students",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "assistance_requests_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "assistance_requests",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "assistance_requests_pkey",
+            "definition": "CREATE UNIQUE INDEX assistance_requests_pkey ON public.assistance_requests USING btree (id)"
+          },
+          {
+            "name": "idx_assistance_requests_student",
+            "definition": "CREATE INDEX idx_assistance_requests_student ON public.assistance_requests USING btree (student_id)"
+          }
+        ],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "parents": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('parents_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": false,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "profile_pic",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "parents_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "parents",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "parents_email_key",
+            "type": "UNIQUE",
+            "column": "email",
+            "foreignTable": "parents",
+            "foreignColumn": "email"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "idx_parents_email",
+            "definition": "CREATE INDEX idx_parents_email ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_email_key",
+            "definition": "CREATE UNIQUE INDEX parents_email_key ON public.parents USING btree (email)"
+          },
+          {
+            "name": "parents_pkey",
+            "definition": "CREATE UNIQUE INDEX parents_pkey ON public.parents USING btree (id)"
+          }
+        ],
+        "rowCount": 10,
+        "sampleData": [
+          {
+            "id": 1,
+            "first_name": "Sarah",
+            "last_name": "Thompson",
+            "email": "sarah.thompson@email.com",
+            "profile_pic": "/images/parents/Sarah_Thompson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2026-01-10T06:33:53.424Z"
+          }
+        ]
+      },
+      "associates": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('associates_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "associate_id",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "google_calendar_url",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "name": "associates_school_id_fkey",
+            "type": "FOREIGN KEY",
+            "column": "school_id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          },
+          {
+            "name": "associates_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "associates",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "associates_pkey",
+            "definition": "CREATE UNIQUE INDEX associates_pkey ON public.associates USING btree (id)"
+          },
+          {
+            "name": "idx_associates_school_id",
+            "definition": "CREATE INDEX idx_associates_school_id ON public.associates USING btree (school_id)"
+          }
+        ],
+        "rowCount": 2,
+        "sampleData": [
+          {
+            "id": 1,
+            "email": "robert.smith@calmcloud.org",
+            "associate_id": "robert.smith@school.edu",
+            "school_id": 1,
+            "role": "associate",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "google_calendar_url": null
+          }
+        ]
+      },
+      "schools": {
+        "exists": true,
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "nullable": false,
+            "default": "nextval('schools_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "name",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": false,
+            "default": null,
+            "position": 2
+          },
+          {
+            "name": "district",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 3
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 4
+          },
+          {
+            "name": "city",
+            "type": "character varying",
+            "maxLength": 100,
+            "nullable": true,
+            "default": null,
+            "position": 5
+          },
+          {
+            "name": "state",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 6
+          },
+          {
+            "name": "zip_code",
+            "type": "character varying",
+            "maxLength": 20,
+            "nullable": true,
+            "default": null,
+            "position": 7
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "nullable": true,
+            "default": null,
+            "position": 8
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "nullable": true,
+            "default": null,
+            "position": 9
+          },
+          {
+            "name": "latitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 10
+          },
+          {
+            "name": "longitude",
+            "type": "numeric",
+            "maxLength": null,
+            "nullable": true,
+            "default": null,
+            "position": 11
+          },
+          {
+            "name": "is_active",
+            "type": "boolean",
+            "maxLength": null,
+            "nullable": true,
+            "default": "true",
+            "position": 12
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "nullable": true,
+            "default": "CURRENT_TIMESTAMP",
+            "position": 14
+          }
+        ],
+        "constraints": [
+          {
+            "name": "schools_pkey",
+            "type": "PRIMARY KEY",
+            "column": "id",
+            "foreignTable": "schools",
+            "foreignColumn": "id"
+          }
+        ],
+        "indexes": [
+          {
+            "name": "schools_pkey",
+            "definition": "CREATE UNIQUE INDEX schools_pkey ON public.schools USING btree (id)"
+          }
+        ],
+        "rowCount": 1,
+        "sampleData": [
+          {
+            "id": 1,
+            "name": "Calumet Middle School",
+            "district": "Calumet-Laurium-Keweenaw School District",
+            "address": null,
+            "city": "Calumet",
+            "state": "MI",
+            "zip_code": null,
+            "phone": null,
+            "email": null,
+            "latitude": null,
+            "longitude": null,
+            "is_active": true,
+            "created_at": "2026-01-10T01:34:28.665Z",
+            "updated_at": "2026-01-10T01:34:28.665Z"
+          }
+        ]
+      },
+      "fhir_observations": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "communications": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "reminders": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      },
+      "emergency_alerts": {
+        "exists": false,
+        "columns": [],
+        "constraints": [],
+        "indexes": [],
+        "rowCount": 0,
+        "sampleData": []
+      }
+    }
+  }
+}

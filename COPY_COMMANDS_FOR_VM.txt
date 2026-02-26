@@ -1,0 +1,13 @@
+# Copy these commands and run them from your LOCAL machine (not on VM)
+
+# Copy the status check scripts to VM
+scp clamcloud-backend/check-backend-status.js mpenmats@192.168.100.6:~/clamcloud-backend/
+scp clamcloud-backend/start-backend-safe.js mpenmats@192.168.100.6:~/clamcloud-backend/
+scp clamcloud-backend/package.json mpenmats@192.168.100.6:~/clamcloud-backend/
+
+# After copying, on the VM you can run:
+#   npm run check
+#   npm run start-safe
+#   OR directly:
+#   node check-backend-status.js
+#   node start-backend-safe.js

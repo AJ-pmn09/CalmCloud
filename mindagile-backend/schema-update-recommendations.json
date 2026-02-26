@@ -1,0 +1,1243 @@
+{
+  "tables": {
+    "users": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "email": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "password_hash": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "role": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "first_name": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_name": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "phone": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "is_active": {
+          "type": "boolean",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "email_verified": {
+          "type": "boolean",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_login": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "school_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "updated_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "profile_picture_url": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "google_calendar_url": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "students": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "user_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "first_name": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_name": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date_of_birth": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "grade": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "school_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_email": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "counselor_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "emergency_contact_name": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "emergency_contact_phone": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "is_active": {
+          "type": "boolean",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "profile_picture_url": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "location": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "reminder_enabled": {
+          "type": "boolean",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "reminder_interval_hours": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_missed_checkin_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_reminder_sent_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "reminder_config_updated_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "daily_checkins": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "stress_level": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "mood_rating": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "stress_source": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "additional_notes": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "mood": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "activity_logs": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "steps": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "sleep_hours": {
+          "type": "numeric",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "hydration_percent": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "nutrition_percent": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "stress_level": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "stress_source": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "heart_rate": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "mood": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "notes": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "wearable_data": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "heart_rate": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "temperature": {
+          "type": "numeric",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "steps": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "sleep_hours": {
+          "type": "numeric",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "wellness_scores": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "score": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "sentiment": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "symptom_logs": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "date": {
+          "type": "date",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "symptom_type": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "severity": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "notes": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "assistance_requests": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "student_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "parent_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "parent_name": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "message": {
+          "type": "text",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "urgency": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "status": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "handled_by": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "handled_by_name": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "handled_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "notes": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "updated_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "parents": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "first_name": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "last_name": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "email": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "profile_pic": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "updated_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "associates": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "email": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "associate_id": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "school_id": {
+          "type": "integer",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "role": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "google_calendar_url": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "schools": {
+      "exists": true,
+      "columns": {
+        "id": {
+          "type": "integer",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "name": {
+          "type": "character varying",
+          "nullable": false,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "district": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "address": {
+          "type": "text",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "city": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "state": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "zip_code": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "phone": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "email": {
+          "type": "character varying",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "latitude": {
+          "type": "numeric",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "longitude": {
+          "type": "numeric",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "is_active": {
+          "type": "boolean",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "created_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        },
+        "updated_at": {
+          "type": "timestamp without time zone",
+          "nullable": true,
+          "databases": [
+            "horizons",
+            "houghton",
+            "calumet"
+          ]
+        }
+      },
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "fhir_observations": {
+      "exists": false,
+      "columns": {},
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "communications": {
+      "exists": false,
+      "columns": {},
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "reminders": {
+      "exists": false,
+      "columns": {},
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    },
+    "emergency_alerts": {
+      "exists": false,
+      "columns": {},
+      "databases": [
+        "horizons",
+        "houghton",
+        "calumet"
+      ]
+    }
+  },
+  "missingTables": [
+    "fhir_observations",
+    "communications",
+    "reminders",
+    "emergency_alerts"
+  ],
+  "columnDifferences": {},
+  "recommendations": [
+    {
+      "file": "routes/studentData.js",
+      "issue": "Query tries to select emotion column that does not exist",
+      "fix": "Remove emotion from SELECT statement, only use: stress_level, mood_rating, date",
+      "currentQuery": "SELECT emotion, stress_level, mood_rating, date FROM daily_checkins",
+      "recommendedQuery": "SELECT stress_level, mood_rating, date FROM daily_checkins"
+    },
+    {
+      "file": "routes/studentData.js",
+      "issue": "fhir_observations table does not exist",
+      "fix": "Keep try/catch block, return empty array if table missing",
+      "status": "✅ Already handled with try/catch"
+    }
+  ]
+}

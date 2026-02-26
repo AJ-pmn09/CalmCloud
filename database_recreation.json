@@ -1,0 +1,4819 @@
+{
+  "metadata": {
+    "exportDate": "2025-12-29T00:53:04.114Z",
+    "databaseName": "mindaigle",
+    "version": "1.0",
+    "description": "Complete database export for recreation - includes all schemas, constraints, and data"
+  },
+  "database": {
+    "name": "mindaigle",
+    "tables": {
+      "users": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('users_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "password_hash",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "role",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 5
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "users_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "users_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "email",
+            "foreign_table_name": "users",
+            "foreign_column_name": "email"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "email": "test.student@mindaigle.com",
+            "password_hash": "$2b$10$Xajaoe.ElKERH3J1kEBU0uDtVVbrnp8nBbwuKIia1RW/o0d1dVtS.",
+            "role": "student",
+            "created_at": "2025-11-07T01:27:37.799Z",
+            "profile_picture_url": null,
+            "first_name": null,
+            "last_name": null,
+            "phone": null
+          },
+          {
+            "id": 2,
+            "email": "test.student2@mindaigle.com",
+            "password_hash": "$2a$10$G0yzkmuOWxw7Y0INH8uyOO7yFhw4arkfF41U.UkdVhDKGZhR6zev2",
+            "role": "student",
+            "created_at": "2025-11-07T03:03:21.237Z",
+            "profile_picture_url": null,
+            "first_name": null,
+            "last_name": null,
+            "phone": null
+          },
+          {
+            "id": 3,
+            "email": "ajay.varma@mtu.edu",
+            "password_hash": "$2b$10$example_hash_ajay",
+            "role": "student",
+            "created_at": "2024-09-01T12:00:00.000Z",
+            "profile_picture_url": null,
+            "first_name": null,
+            "last_name": null,
+            "phone": null
+          },
+          {
+            "id": 4,
+            "email": "kasarlavyshnavipriy@gmail.com",
+            "password_hash": "$2a$10$OmD7q257Nqhofgkv67K5cukvgDoMWs4HljF6rwnNVCgVcZ/Z0PeSi",
+            "role": "student",
+            "created_at": "2025-12-21T21:54:18.128Z",
+            "profile_picture_url": null,
+            "first_name": "Vishnu priya  ",
+            "last_name": "Kasarla ",
+            "phone": "+1 5728748998"
+          },
+          {
+            "id": 5,
+            "email": "ajayvarma@gmail.com",
+            "password_hash": "$2a$10$LjPQcQlrB/7ijziedEtV6OQB7eA2.pUsCzdXrMj6WjgFiP9O7MVni",
+            "role": "admin",
+            "created_at": "2025-12-22T20:25:21.094Z",
+            "profile_picture_url": null,
+            "first_name": "Ajay Varma",
+            "last_name": "Penmatsa",
+            "phone": null
+          },
+          {
+            "id": 6,
+            "email": "perka@gmail.com",
+            "password_hash": "$2a$10$wxxRHRjEUw7v1zHQ5.uAiumPRi97NTFEISyl.UsejPKDgKIMbwJVO",
+            "role": "student",
+            "created_at": "2025-12-23T00:25:13.772Z",
+            "profile_picture_url": null,
+            "first_name": "Vaishnavi",
+            "last_name": "Perka",
+            "phone": null
+          },
+          {
+            "id": 7,
+            "email": "laharika@gmail.com",
+            "password_hash": "$2a$10$i20/uwzzORT3RJ9zRS2qUOXIfFrUW9QVmSAj2zrdGdr0FB.Q6B306",
+            "role": "student",
+            "created_at": "2025-12-23T00:40:48.481Z",
+            "profile_picture_url": null,
+            "first_name": "Laharika ",
+            "last_name": "Mamidi",
+            "phone": null
+          },
+          {
+            "id": 36,
+            "email": "emma.thompson@horizon.edu",
+            "password_hash": "$2b$10$4Do8iwXjvjKjyWcCDPUKeuwCE1velr01nVIe/M1CBFI52p6nLSKSq",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.390Z",
+            "profile_picture_url": null,
+            "first_name": "Emma",
+            "last_name": "Thompson",
+            "phone": null
+          },
+          {
+            "id": 37,
+            "email": "james.martinez@horizon.edu",
+            "password_hash": "$2b$10$eEU9lwUFBSvwqklWiFnvh.WfCqhsWBbPczTcqwU3qGtxp27ANb0n6",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.441Z",
+            "profile_picture_url": null,
+            "first_name": "James",
+            "last_name": "Martinez",
+            "phone": null
+          },
+          {
+            "id": 38,
+            "email": "sophia.chen@horizon.edu",
+            "password_hash": "$2b$10$SAEBi66g6dSJdb5fucdZhuOSVAYycfODsEquPgXuOccb/hvUlfAbW",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.490Z",
+            "profile_picture_url": null,
+            "first_name": "Sophia",
+            "last_name": "Chen",
+            "phone": null
+          },
+          {
+            "id": 39,
+            "email": "michael.anderson@horizon.edu",
+            "password_hash": "$2b$10$nyeS/I4gwM4.5Yoexx.atuR0U1x.MAMF92MvZEhFJW/x/lwJe/FWS",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.539Z",
+            "profile_picture_url": null,
+            "first_name": "Michael",
+            "last_name": "Anderson",
+            "phone": null
+          },
+          {
+            "id": 40,
+            "email": "olivia.williams@houghton.edu",
+            "password_hash": "$2b$10$5/66qdk.l665ZhLgMey8JunBxXZkgH4JzePLbHvuPHEd2napaPINK",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.588Z",
+            "profile_picture_url": null,
+            "first_name": "Olivia",
+            "last_name": "Williams",
+            "phone": null
+          },
+          {
+            "id": 41,
+            "email": "noah.brown@houghton.edu",
+            "password_hash": "$2b$10$UfZY9.t/JDqobvhAU29EV.BiJH2BcE5va1XtqTtks0kveRQ0K/FKi",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.637Z",
+            "profile_picture_url": null,
+            "first_name": "Noah",
+            "last_name": "Brown",
+            "phone": null
+          },
+          {
+            "id": 42,
+            "email": "ava.davis@houghton.edu",
+            "password_hash": "$2b$10$aAdM9fHCexgWO7bM2j0dOurM2Z1Xq5swOMnonrzKMwngylkz3ghU2",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.685Z",
+            "profile_picture_url": null,
+            "first_name": "Ava",
+            "last_name": "Davis",
+            "phone": null
+          },
+          {
+            "id": 43,
+            "email": "liam.garcia@houghton.edu",
+            "password_hash": "$2b$10$lNPN0vLEKJISbbJ38z6b2OL7mvAyMuVx9PYHEfj/vKn5mOL6ULi2e",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.734Z",
+            "profile_picture_url": null,
+            "first_name": "Liam",
+            "last_name": "Garcia",
+            "phone": null
+          },
+          {
+            "id": 44,
+            "email": "isabella.rodriguez@calumet.edu",
+            "password_hash": "$2b$10$RQA0wTAHkqFQN9rLcTYaneqE8848HaD0rVWp7jS943Ga0A4dz6Qtq",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.782Z",
+            "profile_picture_url": null,
+            "first_name": "Isabella",
+            "last_name": "Rodriguez",
+            "phone": null
+          },
+          {
+            "id": 45,
+            "email": "ethan.wilson@calumet.edu",
+            "password_hash": "$2b$10$L2CjKeoLHxv8jU9spnzpeek1Xhq/B7U2H89RniarhNkVYD4u7Qo4i",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.831Z",
+            "profile_picture_url": null,
+            "first_name": "Ethan",
+            "last_name": "Wilson",
+            "phone": null
+          },
+          {
+            "id": 46,
+            "email": "mia.moore@calumet.edu",
+            "password_hash": "$2b$10$h2shPkU1/zEKgBussiFBzeP8Z3QOOLj3pjyaQt/O.G9gbIZ7xIoGG",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.879Z",
+            "profile_picture_url": null,
+            "first_name": "Mia",
+            "last_name": "Moore",
+            "phone": null
+          },
+          {
+            "id": 47,
+            "email": "lucas.taylor@calumet.edu",
+            "password_hash": "$2b$10$lS2SvFyOTC/cCnwC1s1OYutEG1O8NsD49PKjNIux/13z1Kl27JFLC",
+            "role": "student",
+            "created_at": "2025-12-27T04:13:12.928Z",
+            "profile_picture_url": null,
+            "first_name": "Lucas",
+            "last_name": "Taylor",
+            "phone": null
+          },
+          {
+            "id": 48,
+            "email": "sarah.thompson@email.com",
+            "password_hash": "$2b$10$KmL8tstcUL4VIZq7CE9GSuOs/R6m21N.B00VWuBf7atf9OthFAdJG",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:12.976Z",
+            "profile_picture_url": null,
+            "first_name": "Sarah",
+            "last_name": "Thompson",
+            "phone": null
+          },
+          {
+            "id": 49,
+            "email": "david.wilson@email.com",
+            "password_hash": "$2b$10$XH8PajlTaZnf.WfPvMim4.VIwMWZ2nI8zKsYRP1h7Zd.R1GqqXUWm",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.026Z",
+            "profile_picture_url": null,
+            "first_name": "David",
+            "last_name": "Wilson",
+            "phone": null
+          },
+          {
+            "id": 50,
+            "email": "maria.martinez@email.com",
+            "password_hash": "$2b$10$VtvA36sPNEmTopjr58AR0u6hlUOxGTbrJKGkqjWmr1TRV8EOZrazq",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.075Z",
+            "profile_picture_url": null,
+            "first_name": "Maria",
+            "last_name": "Martinez",
+            "phone": null
+          },
+          {
+            "id": 51,
+            "email": "wei.chen@email.com",
+            "password_hash": "$2b$10$u2wgt.gyqtV9AJTIgDKHFu1T7O58VsY9grAAtCfJpXy215UA7.cVO",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.123Z",
+            "profile_picture_url": null,
+            "first_name": "Wei",
+            "last_name": "Chen",
+            "phone": null
+          },
+          {
+            "id": 52,
+            "email": "robert.anderson@email.com",
+            "password_hash": "$2b$10$kt8hc.d7IzsFUwuQ5OppkuocAdCcMtdrp0Pbyb0zj9cEflWuHQJgC",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.172Z",
+            "profile_picture_url": null,
+            "first_name": "Robert",
+            "last_name": "Anderson",
+            "phone": null
+          },
+          {
+            "id": 53,
+            "email": "jennifer.brown@email.com",
+            "password_hash": "$2b$10$Y76PD2x4ORb3oiZXvS1EyeB8RinH41hl/7zXPhTRCBvRdEXVvVqrS",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.220Z",
+            "profile_picture_url": null,
+            "first_name": "Jennifer",
+            "last_name": "Brown",
+            "phone": null
+          },
+          {
+            "id": 54,
+            "email": "christopher.davis@email.com",
+            "password_hash": "$2b$10$lHl3prEJ4whWlIxpyIrbpehIuc1uF5keglwtXQuTBC/T0oP5vnaaO",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.268Z",
+            "profile_picture_url": null,
+            "first_name": "Christopher",
+            "last_name": "Davis",
+            "phone": null
+          },
+          {
+            "id": 55,
+            "email": "patricia.garcia@email.com",
+            "password_hash": "$2b$10$FvT2eUhqRr3iJxGIGwxTk.Gx0bjR0TFEazWbyfyelIC0k3mlK2Ble",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.317Z",
+            "profile_picture_url": null,
+            "first_name": "Patricia",
+            "last_name": "Garcia",
+            "phone": null
+          },
+          {
+            "id": 56,
+            "email": "carlos.rodriguez@email.com",
+            "password_hash": "$2b$10$CvH7IQCN6rN0EwuEFHBMJ.668arFArd0Eg3iwJvGTv76bS.NoW/EO",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.365Z",
+            "profile_picture_url": null,
+            "first_name": "Carlos",
+            "last_name": "Rodriguez",
+            "phone": null
+          },
+          {
+            "id": 57,
+            "email": "amanda.taylor@email.com",
+            "password_hash": "$2b$10$1ORfMQNPCHFLz1RoMMvLA.cLk8G6YeoX8gy9XnZCtnbdMTIYLmV4G",
+            "role": "parent",
+            "created_at": "2025-12-27T04:13:13.414Z",
+            "profile_picture_url": null,
+            "first_name": "Amanda",
+            "last_name": "Taylor",
+            "phone": null
+          },
+          {
+            "id": 58,
+            "email": "jennifer.parker@calmcloud.org",
+            "password_hash": "$2b$10$yWcUC0D9HbCYZrVrm7wXYeIJTlWoibK6sxGP/tGUrNQ1dt2wlQ3LO",
+            "role": "associate",
+            "created_at": "2025-12-27T04:13:13.462Z",
+            "profile_picture_url": null,
+            "first_name": "Jennifer",
+            "last_name": "Parker",
+            "phone": null
+          },
+          {
+            "id": 59,
+            "email": "michael.johnson@calmcloud.org",
+            "password_hash": "$2b$10$jh93nIlK0AK6cV4A2BCOnuv5oZx4SgWyEUpWeebYXv.wCfENsAqwq",
+            "role": "associate",
+            "created_at": "2025-12-27T04:13:13.512Z",
+            "profile_picture_url": null,
+            "first_name": "Michael",
+            "last_name": "Johnson",
+            "phone": null
+          },
+          {
+            "id": 60,
+            "email": "lisa.martinez@calmcloud.org",
+            "password_hash": "$2b$10$lNwtzJaiE05yfFA226tL3unevSMNXt3XhPo9D45UKeYl3Mj.AFx/O",
+            "role": "associate",
+            "created_at": "2025-12-27T04:13:13.561Z",
+            "profile_picture_url": null,
+            "first_name": "Lisa",
+            "last_name": "Martinez",
+            "phone": null
+          },
+          {
+            "id": 61,
+            "email": "robert.smith@calmcloud.org",
+            "password_hash": "$2b$10$okGheNE9jacxNzM.9UINNuc2Q5emCX1oQg4hfpeoL6geau2ZiQ9XW",
+            "role": "associate",
+            "created_at": "2025-12-27T04:13:13.611Z",
+            "profile_picture_url": null,
+            "first_name": "Robert",
+            "last_name": "Smith",
+            "phone": null
+          },
+          {
+            "id": 62,
+            "email": "emily.davis@calmcloud.org",
+            "password_hash": "$2b$10$sp4OyJbJ92ZEyoWjFyOM1O.y71DXj8yLUuMRporoWXMfhEc9fHuBW",
+            "role": "associate",
+            "created_at": "2025-12-27T04:13:13.660Z",
+            "profile_picture_url": null,
+            "first_name": "Emily",
+            "last_name": "Davis",
+            "phone": null
+          },
+          {
+            "id": 63,
+            "email": "ajayvarma9@gmail.com",
+            "password_hash": "$2a$10$08J2DAKcD.CV36MP5Nhwg.FnNfagd8ytOcrqHxnB3RSFWpfZDcHV6",
+            "role": "admin",
+            "created_at": "2025-12-27T20:04:16.404Z",
+            "profile_picture_url": null,
+            "first_name": "Ajay Varma",
+            "last_name": "Penmats",
+            "phone": null
+          }
+        ]
+      },
+      "schools": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('schools_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "name",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 5
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "schools_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "schools",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "schools_name_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "name",
+            "foreign_table_name": "schools",
+            "foreign_column_name": "name"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "name": "Horizon High School",
+            "address": "123 Horizon Drive, City, State 12345",
+            "phone": "(555) 123-4567",
+            "created_at": "2025-12-27T04:13:12.336Z"
+          },
+          {
+            "id": 2,
+            "name": "Houghton High School",
+            "address": "456 Houghton Avenue, City, State 12345",
+            "phone": "(555) 234-5678",
+            "created_at": "2025-12-27T04:13:12.338Z"
+          },
+          {
+            "id": 3,
+            "name": "Calumet Middle School",
+            "address": "789 Calumet Street, City, State 12345",
+            "phone": "(555) 345-6789",
+            "created_at": "2025-12-27T04:13:12.338Z"
+          }
+        ]
+      },
+      "students": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('students_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "user_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "date_of_birth",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "grade",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "profile_picture_url",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "location",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 10
+          },
+          {
+            "name": "reminder_enabled",
+            "type": "boolean",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "true",
+            "position": 11
+          },
+          {
+            "name": "reminder_interval_hours",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": "24",
+            "position": 12
+          },
+          {
+            "name": "last_missed_checkin_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 13
+          },
+          {
+            "name": "last_reminder_sent_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 14
+          },
+          {
+            "name": "reminder_config_updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 15
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "students_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "students_user_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "user_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 20,
+            "user_id": 36,
+            "first_name": "Emma",
+            "last_name": "Thompson",
+            "date_of_birth": "2010-03-15T04:00:00.000Z",
+            "grade": 9,
+            "school_id": 1,
+            "profile_picture_url": "/images/students/Emma_Thompson.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.392Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 21,
+            "user_id": 37,
+            "first_name": "James",
+            "last_name": "Martinez",
+            "date_of_birth": "2009-07-22T04:00:00.000Z",
+            "grade": 10,
+            "school_id": 1,
+            "profile_picture_url": "/images/students/James_Martinez.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.442Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 22,
+            "user_id": 38,
+            "first_name": "Sophia",
+            "last_name": "Chen",
+            "date_of_birth": "2008-11-08T05:00:00.000Z",
+            "grade": 11,
+            "school_id": 1,
+            "profile_picture_url": "/images/students/Sophia_Chen.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.491Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 23,
+            "user_id": 39,
+            "first_name": "Michael",
+            "last_name": "Anderson",
+            "date_of_birth": "2007-05-30T04:00:00.000Z",
+            "grade": 12,
+            "school_id": 1,
+            "profile_picture_url": "/images/students/Michael_Anderson.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.540Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": null,
+            "last_reminder_sent_at": null,
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 24,
+            "user_id": 40,
+            "first_name": "Olivia",
+            "last_name": "Williams",
+            "date_of_birth": "2010-01-18T05:00:00.000Z",
+            "grade": 9,
+            "school_id": 2,
+            "profile_picture_url": "/images/students/Olivia_Williams.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.589Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.839Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.839Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 25,
+            "user_id": 41,
+            "first_name": "Noah",
+            "last_name": "Brown",
+            "date_of_birth": "2009-09-12T04:00:00.000Z",
+            "grade": 10,
+            "school_id": 2,
+            "profile_picture_url": "/images/students/Noah_Brown.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.637Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.839Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.839Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 26,
+            "user_id": 42,
+            "first_name": "Ava",
+            "last_name": "Davis",
+            "date_of_birth": "2008-04-25T04:00:00.000Z",
+            "grade": 11,
+            "school_id": 2,
+            "profile_picture_url": "/images/students/Ava_Davis.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.686Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.840Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.840Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 27,
+            "user_id": 43,
+            "first_name": "Liam",
+            "last_name": "Garcia",
+            "date_of_birth": "2007-12-03T05:00:00.000Z",
+            "grade": 12,
+            "school_id": 2,
+            "profile_picture_url": "/images/students/Liam_Garcia.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.734Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.841Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.841Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 28,
+            "user_id": 44,
+            "first_name": "Isabella",
+            "last_name": "Rodriguez",
+            "date_of_birth": "2012-06-20T04:00:00.000Z",
+            "grade": 6,
+            "school_id": 3,
+            "profile_picture_url": "/images/students/Isabella_Rodriguez.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.783Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.842Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.842Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 29,
+            "user_id": 45,
+            "first_name": "Ethan",
+            "last_name": "Wilson",
+            "date_of_birth": "2011-08-14T04:00:00.000Z",
+            "grade": 7,
+            "school_id": 3,
+            "profile_picture_url": "/images/students/Ethan_Wilson.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.831Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.843Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.843Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 30,
+            "user_id": 46,
+            "first_name": "Mia",
+            "last_name": "Moore",
+            "date_of_birth": "2011-02-28T05:00:00.000Z",
+            "grade": 7,
+            "school_id": 3,
+            "profile_picture_url": "/images/students/Mia_Moore.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.880Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.844Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.844Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 31,
+            "user_id": 47,
+            "first_name": "Lucas",
+            "last_name": "Taylor",
+            "date_of_birth": "2010-10-10T04:00:00.000Z",
+            "grade": 8,
+            "school_id": 3,
+            "profile_picture_url": "/images/students/Lucas_Taylor.png",
+            "location": null,
+            "created_at": "2025-12-27T04:13:12.928Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.846Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.846Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 32,
+            "user_id": 2,
+            "first_name": "",
+            "last_name": "",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.436Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.827Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.827Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 33,
+            "user_id": 6,
+            "first_name": "Vaishnavi",
+            "last_name": "Perka",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.436Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.831Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.831Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 34,
+            "user_id": 4,
+            "first_name": "Vishnu priya  ",
+            "last_name": "Kasarla ",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.437Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.833Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.833Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 35,
+            "user_id": 1,
+            "first_name": "",
+            "last_name": "",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.437Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.834Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.834Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 36,
+            "user_id": 3,
+            "first_name": "",
+            "last_name": "",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.438Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.835Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.835Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          },
+          {
+            "id": 37,
+            "user_id": 7,
+            "first_name": "Laharika ",
+            "last_name": "Mamidi",
+            "date_of_birth": null,
+            "grade": null,
+            "school_id": null,
+            "profile_picture_url": null,
+            "location": null,
+            "created_at": "2025-12-27T20:04:27.438Z",
+            "reminder_enabled": true,
+            "reminder_interval_hours": 24,
+            "last_missed_checkin_at": "2025-12-29T01:18:47.836Z",
+            "last_reminder_sent_at": "2025-12-29T01:18:47.836Z",
+            "reminder_config_updated_at": "2025-12-28T15:55:35.659Z"
+          }
+        ]
+      },
+      "parents": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('parents_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "profile_pic",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "parents_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "parents",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "parents_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "email",
+            "foreign_table_name": "parents",
+            "foreign_column_name": "email"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "first_name": "Sarah",
+            "last_name": "Thompson",
+            "email": "sarah.thompson@email.com",
+            "profile_pic": "/images/parents/Sarah_Thompson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 2,
+            "first_name": "David",
+            "last_name": "Wilson",
+            "email": "david.wilson@email.com",
+            "profile_pic": "/images/parents/David_Wilson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 3,
+            "first_name": "Maria",
+            "last_name": "Martinez",
+            "email": "maria.martinez@email.com",
+            "profile_pic": "/images/parents/Maria_Martinez.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 4,
+            "first_name": "Wei",
+            "last_name": "Chen",
+            "email": "wei.chen@email.com",
+            "profile_pic": "/images/parents/Wei_Chen.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 5,
+            "first_name": "Robert",
+            "last_name": "Anderson",
+            "email": "robert.anderson@email.com",
+            "profile_pic": null,
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 6,
+            "first_name": "Jennifer",
+            "last_name": "Brown",
+            "email": "jennifer.brown@email.com",
+            "profile_pic": "/images/parents/Jennifer_Brown.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 7,
+            "first_name": "Christopher",
+            "last_name": "Davis",
+            "email": "christopher.davis@email.com",
+            "profile_pic": "/images/parents/Christopher_Davis.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 8,
+            "first_name": "Patricia",
+            "last_name": "Garcia",
+            "email": "patricia.garcia@email.com",
+            "profile_pic": "/images/parents/Patricia_Garcia.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 9,
+            "first_name": "Carlos",
+            "last_name": "Rodriguez",
+            "email": "carlos.rodriguez@email.com",
+            "profile_pic": "/images/parents/Carlos_Rodriguez.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 10,
+            "first_name": "Amanda",
+            "last_name": "Taylor",
+            "email": "amanda.taylor@email.com",
+            "profile_pic": "/images/parents/Amanda_Taylor.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          }
+        ]
+      },
+      "associates": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('associates_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "associate_id",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "first_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "last_name",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "phone_number",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "email",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "profile_pic",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 10
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 11
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "associates_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "associates",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "associates_associate_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "associate_id",
+            "foreign_table_name": "associates",
+            "foreign_column_name": "associate_id"
+          },
+          {
+            "constraint_name": "associates_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "email",
+            "foreign_table_name": "associates",
+            "foreign_column_name": "email"
+          },
+          {
+            "constraint_name": "associates_school_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "school_id",
+            "foreign_table_name": "schools",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "associate_id": "jennifer.parker@school.edu",
+            "school_id": 1,
+            "first_name": "Jennifer",
+            "last_name": "Parker",
+            "phone_number": null,
+            "email": "jennifer.parker@calmcloud.org",
+            "address": null,
+            "profile_pic": "/images/associates/Jennifer_Parker.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 2,
+            "associate_id": "michael.johnson@school.edu",
+            "school_id": 1,
+            "first_name": "Michael",
+            "last_name": "Johnson",
+            "phone_number": null,
+            "email": "michael.johnson@calmcloud.org",
+            "address": null,
+            "profile_pic": "/images/associates/Michael_Johnson.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 3,
+            "associate_id": "lisa.martinez@school.edu",
+            "school_id": 2,
+            "first_name": "Lisa",
+            "last_name": "Martinez",
+            "phone_number": null,
+            "email": "lisa.martinez@calmcloud.org",
+            "address": null,
+            "profile_pic": "/images/associates/Lisa_Martinez.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 4,
+            "associate_id": "robert.smith@school.edu",
+            "school_id": 3,
+            "first_name": "Robert",
+            "last_name": "Smith",
+            "phone_number": null,
+            "email": "robert.smith@calmcloud.org",
+            "address": null,
+            "profile_pic": "/images/associates/Robert_Smith.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          },
+          {
+            "id": 5,
+            "associate_id": "emily.davis@school.edu",
+            "school_id": 3,
+            "first_name": "Emily",
+            "last_name": "Davis",
+            "phone_number": null,
+            "email": "emily.davis@calmcloud.org",
+            "address": null,
+            "profile_pic": "/images/associates/Emily_Davis.png",
+            "created_at": "2025-12-27T20:39:13.252Z",
+            "updated_at": "2025-12-27T20:39:13.252Z"
+          }
+        ]
+      },
+      "associates_schools": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('associates_schools_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "associate_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "school_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 4
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "associates_schools_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "associates_schools",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "associates_schools_associate_id_school_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "associate_id",
+            "foreign_table_name": "associates_schools",
+            "foreign_column_name": "associate_id"
+          },
+          {
+            "constraint_name": "associates_schools_associate_id_school_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "associate_id",
+            "foreign_table_name": "associates_schools",
+            "foreign_column_name": "school_id"
+          },
+          {
+            "constraint_name": "associates_schools_associate_id_school_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "school_id",
+            "foreign_table_name": "associates_schools",
+            "foreign_column_name": "associate_id"
+          },
+          {
+            "constraint_name": "associates_schools_associate_id_school_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "school_id",
+            "foreign_table_name": "associates_schools",
+            "foreign_column_name": "school_id"
+          },
+          {
+            "constraint_name": "associates_schools_associate_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "associate_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "associates_schools_school_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "school_id",
+            "foreign_table_name": "schools",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 2,
+            "associate_id": 58,
+            "school_id": 1,
+            "created_at": "2025-12-27T04:13:13.462Z"
+          },
+          {
+            "id": 3,
+            "associate_id": 59,
+            "school_id": 1,
+            "created_at": "2025-12-27T04:13:13.512Z"
+          },
+          {
+            "id": 4,
+            "associate_id": 59,
+            "school_id": 2,
+            "created_at": "2025-12-27T04:13:13.513Z"
+          },
+          {
+            "id": 5,
+            "associate_id": 60,
+            "school_id": 2,
+            "created_at": "2025-12-27T04:13:13.562Z"
+          },
+          {
+            "id": 6,
+            "associate_id": 61,
+            "school_id": 3,
+            "created_at": "2025-12-27T04:13:13.611Z"
+          },
+          {
+            "id": 7,
+            "associate_id": 62,
+            "school_id": 3,
+            "created_at": "2025-12-27T04:13:13.660Z"
+          }
+        ]
+      },
+      "parent_child_links": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('parent_child_links_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "student_email",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "'active'::character varying",
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 6
+          },
+          {
+            "name": "linked_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "parent_child_links_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "parent_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "parent_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "parent_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "student_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "student_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "parent_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_id_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "student_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "student_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "parent_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "parent_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "parent_id",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "student_email"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "student_email",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "parent_id"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_student_email_key",
+            "constraint_type": "UNIQUE",
+            "column_name": "student_email",
+            "foreign_table_name": "parent_child_links",
+            "foreign_column_name": "student_email"
+          },
+          {
+            "constraint_name": "parent_child_links_parent_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "parent_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "parent_child_links_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "parent_id": 48,
+            "student_id": 20,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:12.977Z",
+            "linked_at": "2025-12-27T04:13:12.977Z"
+          },
+          {
+            "id": 2,
+            "parent_id": 48,
+            "student_id": 24,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:12.977Z",
+            "linked_at": "2025-12-27T04:13:12.977Z"
+          },
+          {
+            "id": 3,
+            "parent_id": 49,
+            "student_id": 29,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.026Z",
+            "linked_at": "2025-12-27T04:13:13.026Z"
+          },
+          {
+            "id": 4,
+            "parent_id": 49,
+            "student_id": 30,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.026Z",
+            "linked_at": "2025-12-27T04:13:13.026Z"
+          },
+          {
+            "id": 5,
+            "parent_id": 50,
+            "student_id": 21,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.075Z",
+            "linked_at": "2025-12-27T04:13:13.075Z"
+          },
+          {
+            "id": 6,
+            "parent_id": 51,
+            "student_id": 22,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.124Z",
+            "linked_at": "2025-12-27T04:13:13.124Z"
+          },
+          {
+            "id": 7,
+            "parent_id": 52,
+            "student_id": 23,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.172Z",
+            "linked_at": "2025-12-27T04:13:13.172Z"
+          },
+          {
+            "id": 8,
+            "parent_id": 53,
+            "student_id": 25,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.220Z",
+            "linked_at": "2025-12-27T04:13:13.220Z"
+          },
+          {
+            "id": 9,
+            "parent_id": 54,
+            "student_id": 26,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.269Z",
+            "linked_at": "2025-12-27T04:13:13.269Z"
+          },
+          {
+            "id": 10,
+            "parent_id": 55,
+            "student_id": 27,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.317Z",
+            "linked_at": "2025-12-27T04:13:13.317Z"
+          },
+          {
+            "id": 11,
+            "parent_id": 56,
+            "student_id": 28,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.365Z",
+            "linked_at": "2025-12-27T04:13:13.365Z"
+          },
+          {
+            "id": 12,
+            "parent_id": 57,
+            "student_id": 31,
+            "student_email": null,
+            "status": "active",
+            "created_at": "2025-12-27T04:13:13.414Z",
+            "linked_at": "2025-12-27T04:13:13.414Z"
+          }
+        ]
+      },
+      "daily_checkins": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('daily_checkins_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "mood_rating",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "additional_notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 8
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "daily_checkins_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "daily_checkins",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "daily_checkins_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 1,
+            "stress_source": null,
+            "additional_notes": "Emotion: content, Intensity: 9",
+            "created_at": "2025-12-27T22:23:57.929Z"
+          },
+          {
+            "id": 2,
+            "student_id": 20,
+            "date": "2025-12-26T05:00:00.000Z",
+            "stress_level": 5,
+            "mood_rating": 4,
+            "stress_source": "social",
+            "additional_notes": "Emotion: frustrated, Intensity: 2",
+            "created_at": "2025-12-27T22:23:57.949Z"
+          },
+          {
+            "id": 3,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 5,
+            "stress_source": "sports",
+            "additional_notes": "Emotion: calm, Intensity: 5",
+            "created_at": "2025-12-27T22:23:57.951Z"
+          },
+          {
+            "id": 5,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 2,
+            "stress_source": null,
+            "additional_notes": "Emotion: anxious, Intensity: 5",
+            "created_at": "2025-12-27T22:24:02.523Z"
+          },
+          {
+            "id": 6,
+            "student_id": 20,
+            "date": "2025-12-26T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 4,
+            "stress_source": "social",
+            "additional_notes": "Emotion: happy, Intensity: 10",
+            "created_at": "2025-12-27T22:24:02.526Z"
+          },
+          {
+            "id": 7,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 1,
+            "stress_source": null,
+            "additional_notes": "Emotion: excited, Intensity: 7",
+            "created_at": "2025-12-27T22:24:02.528Z"
+          },
+          {
+            "id": 8,
+            "student_id": 20,
+            "date": "2025-12-24T05:00:00.000Z",
+            "stress_level": 5,
+            "mood_rating": 3,
+            "stress_source": "grades",
+            "additional_notes": "Emotion: happy, Intensity: 10",
+            "created_at": "2025-12-27T22:24:02.529Z"
+          },
+          {
+            "id": 9,
+            "student_id": 20,
+            "date": "2025-12-23T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 4,
+            "stress_source": "family",
+            "additional_notes": "Emotion: calm, Intensity: 10",
+            "created_at": "2025-12-27T22:24:02.530Z"
+          },
+          {
+            "id": 10,
+            "student_id": 20,
+            "date": "2025-12-22T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 5,
+            "stress_source": "social",
+            "additional_notes": "Emotion: excited, Intensity: 8",
+            "created_at": "2025-12-27T22:24:02.531Z"
+          },
+          {
+            "id": 11,
+            "student_id": 20,
+            "date": "2025-12-21T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 2,
+            "stress_source": null,
+            "additional_notes": "Emotion: frustrated, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.531Z"
+          },
+          {
+            "id": 12,
+            "student_id": 21,
+            "date": "2025-12-27T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 1,
+            "stress_source": "sports",
+            "additional_notes": "Emotion: content, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.533Z"
+          },
+          {
+            "id": 13,
+            "student_id": 21,
+            "date": "2025-12-26T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 4,
+            "stress_source": "social",
+            "additional_notes": "Emotion: content, Intensity: 3",
+            "created_at": "2025-12-27T22:24:02.535Z"
+          },
+          {
+            "id": 14,
+            "student_id": 21,
+            "date": "2025-12-25T05:00:00.000Z",
+            "stress_level": 5,
+            "mood_rating": 2,
+            "stress_source": "social",
+            "additional_notes": "Emotion: happy, Intensity: 7",
+            "created_at": "2025-12-27T22:24:02.536Z"
+          },
+          {
+            "id": 15,
+            "student_id": 21,
+            "date": "2025-12-24T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 1,
+            "stress_source": "homework",
+            "additional_notes": "Emotion: anxious, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.536Z"
+          },
+          {
+            "id": 16,
+            "student_id": 21,
+            "date": "2025-12-23T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 3,
+            "stress_source": "homework",
+            "additional_notes": "Emotion: content, Intensity: 6",
+            "created_at": "2025-12-27T22:24:02.537Z"
+          },
+          {
+            "id": 17,
+            "student_id": 21,
+            "date": "2025-12-22T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 5,
+            "stress_source": "homework",
+            "additional_notes": "Emotion: worried, Intensity: 7",
+            "created_at": "2025-12-27T22:24:02.538Z"
+          },
+          {
+            "id": 18,
+            "student_id": 21,
+            "date": "2025-12-21T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 3,
+            "stress_source": "family",
+            "additional_notes": "Emotion: anxious, Intensity: 3",
+            "created_at": "2025-12-27T22:24:02.539Z"
+          },
+          {
+            "id": 19,
+            "student_id": 22,
+            "date": "2025-12-27T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 1,
+            "stress_source": null,
+            "additional_notes": "Emotion: excited, Intensity: 2",
+            "created_at": "2025-12-27T22:24:02.540Z"
+          },
+          {
+            "id": 20,
+            "student_id": 22,
+            "date": "2025-12-26T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 4,
+            "stress_source": "sports",
+            "additional_notes": "Emotion: calm, Intensity: 3",
+            "created_at": "2025-12-27T22:24:02.541Z"
+          },
+          {
+            "id": 21,
+            "student_id": 22,
+            "date": "2025-12-25T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 5,
+            "stress_source": "family",
+            "additional_notes": "Emotion: happy, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.542Z"
+          },
+          {
+            "id": 22,
+            "student_id": 22,
+            "date": "2025-12-24T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 3,
+            "stress_source": "social",
+            "additional_notes": "Emotion: excited, Intensity: 8",
+            "created_at": "2025-12-27T22:24:02.543Z"
+          },
+          {
+            "id": 23,
+            "student_id": 22,
+            "date": "2025-12-23T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 3,
+            "stress_source": "sports",
+            "additional_notes": "Emotion: worried, Intensity: 3",
+            "created_at": "2025-12-27T22:24:02.544Z"
+          },
+          {
+            "id": 24,
+            "student_id": 22,
+            "date": "2025-12-22T05:00:00.000Z",
+            "stress_level": 5,
+            "mood_rating": 4,
+            "stress_source": "grades",
+            "additional_notes": "Emotion: happy, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.546Z"
+          },
+          {
+            "id": 25,
+            "student_id": 22,
+            "date": "2025-12-21T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 3,
+            "stress_source": "exams",
+            "additional_notes": "Emotion: content, Intensity: 1",
+            "created_at": "2025-12-27T22:24:02.547Z"
+          },
+          {
+            "id": 26,
+            "student_id": 23,
+            "date": "2025-12-27T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 4,
+            "stress_source": "friends",
+            "additional_notes": "Emotion: sad, Intensity: 10",
+            "created_at": "2025-12-27T22:24:02.550Z"
+          },
+          {
+            "id": 27,
+            "student_id": 23,
+            "date": "2025-12-26T05:00:00.000Z",
+            "stress_level": 1,
+            "mood_rating": 1,
+            "stress_source": "family",
+            "additional_notes": "Emotion: anxious, Intensity: 1",
+            "created_at": "2025-12-27T22:24:02.551Z"
+          },
+          {
+            "id": 28,
+            "student_id": 23,
+            "date": "2025-12-25T05:00:00.000Z",
+            "stress_level": 3,
+            "mood_rating": 4,
+            "stress_source": "grades",
+            "additional_notes": "Emotion: content, Intensity: 10",
+            "created_at": "2025-12-27T22:24:02.552Z"
+          },
+          {
+            "id": 29,
+            "student_id": 23,
+            "date": "2025-12-24T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 3,
+            "stress_source": "social",
+            "additional_notes": "Emotion: excited, Intensity: 7",
+            "created_at": "2025-12-27T22:24:02.553Z"
+          },
+          {
+            "id": 30,
+            "student_id": 23,
+            "date": "2025-12-23T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 2,
+            "stress_source": "family",
+            "additional_notes": "Emotion: content, Intensity: 6",
+            "created_at": "2025-12-27T22:24:02.554Z"
+          },
+          {
+            "id": 31,
+            "student_id": 23,
+            "date": "2025-12-22T05:00:00.000Z",
+            "stress_level": 4,
+            "mood_rating": 4,
+            "stress_source": "friends",
+            "additional_notes": "Emotion: calm, Intensity: 4",
+            "created_at": "2025-12-27T22:24:02.555Z"
+          },
+          {
+            "id": 32,
+            "student_id": 23,
+            "date": "2025-12-21T05:00:00.000Z",
+            "stress_level": 2,
+            "mood_rating": 2,
+            "stress_source": "sports",
+            "additional_notes": "Emotion: anxious, Intensity: 3",
+            "created_at": "2025-12-27T22:24:02.555Z"
+          }
+        ]
+      },
+      "activity_logs": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('activity_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": "0",
+            "position": 4
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 4,
+            "scale": 2,
+            "nullable": true,
+            "defaultValue": "0",
+            "position": 5
+          },
+          {
+            "name": "hydration_percent",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": "0",
+            "position": 6
+          },
+          {
+            "name": "nutrition_percent",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": "0",
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "stress_level",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "stress_source",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 10
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 11
+          },
+          {
+            "name": "mood",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 12
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 13
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "activity_logs_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "activity_logs",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "activity_logs_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "steps": 3195,
+            "sleep_hours": "6.51",
+            "hydration_percent": 95,
+            "nutrition_percent": 72,
+            "created_at": "2025-12-27T22:23:57.938Z",
+            "stress_level": 1,
+            "stress_source": null,
+            "heart_rate": 85,
+            "mood": "negative",
+            "notes": "Daily notes for 2025-12-27"
+          },
+          {
+            "id": 2,
+            "student_id": 20,
+            "date": "2025-12-26T05:00:00.000Z",
+            "steps": 11195,
+            "sleep_hours": "8.90",
+            "hydration_percent": 70,
+            "nutrition_percent": 97,
+            "created_at": "2025-12-27T22:23:57.950Z",
+            "stress_level": 5,
+            "stress_source": "social",
+            "heart_rate": 66,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 3,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "steps": 13645,
+            "sleep_hours": "8.95",
+            "hydration_percent": 91,
+            "nutrition_percent": 99,
+            "created_at": "2025-12-27T22:23:57.951Z",
+            "stress_level": 4,
+            "stress_source": "sports",
+            "heart_rate": 97,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 4,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "steps": 13624,
+            "sleep_hours": "8.99",
+            "hydration_percent": 66,
+            "nutrition_percent": 72,
+            "created_at": "2025-12-27T22:24:02.524Z",
+            "stress_level": 4,
+            "stress_source": null,
+            "heart_rate": 62,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-27"
+          },
+          {
+            "id": 5,
+            "student_id": 20,
+            "date": "2025-12-26T05:00:00.000Z",
+            "steps": 3926,
+            "sleep_hours": "6.67",
+            "hydration_percent": 81,
+            "nutrition_percent": 83,
+            "created_at": "2025-12-27T22:24:02.527Z",
+            "stress_level": 2,
+            "stress_source": "social",
+            "heart_rate": 84,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 6,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "steps": 3545,
+            "sleep_hours": "8.00",
+            "hydration_percent": 77,
+            "nutrition_percent": 74,
+            "created_at": "2025-12-27T22:24:02.528Z",
+            "stress_level": 3,
+            "stress_source": null,
+            "heart_rate": 84,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 7,
+            "student_id": 20,
+            "date": "2025-12-24T05:00:00.000Z",
+            "steps": 5311,
+            "sleep_hours": "7.65",
+            "hydration_percent": 90,
+            "nutrition_percent": 97,
+            "created_at": "2025-12-27T22:24:02.529Z",
+            "stress_level": 5,
+            "stress_source": "grades",
+            "heart_rate": 65,
+            "mood": "neutral",
+            "notes": "Daily notes for 2025-12-24"
+          },
+          {
+            "id": 8,
+            "student_id": 20,
+            "date": "2025-12-23T05:00:00.000Z",
+            "steps": 14542,
+            "sleep_hours": "7.64",
+            "hydration_percent": 91,
+            "nutrition_percent": 72,
+            "created_at": "2025-12-27T22:24:02.530Z",
+            "stress_level": 4,
+            "stress_source": "family",
+            "heart_rate": 79,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 9,
+            "student_id": 20,
+            "date": "2025-12-22T05:00:00.000Z",
+            "steps": 5458,
+            "sleep_hours": "7.93",
+            "hydration_percent": 78,
+            "nutrition_percent": 99,
+            "created_at": "2025-12-27T22:24:02.531Z",
+            "stress_level": 4,
+            "stress_source": "social",
+            "heart_rate": 84,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 10,
+            "student_id": 20,
+            "date": "2025-12-21T05:00:00.000Z",
+            "steps": 14170,
+            "sleep_hours": "8.28",
+            "hydration_percent": 84,
+            "nutrition_percent": 84,
+            "created_at": "2025-12-27T22:24:02.531Z",
+            "stress_level": 3,
+            "stress_source": null,
+            "heart_rate": 90,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-21"
+          },
+          {
+            "id": 11,
+            "student_id": 21,
+            "date": "2025-12-27T05:00:00.000Z",
+            "steps": 3714,
+            "sleep_hours": "7.20",
+            "hydration_percent": 73,
+            "nutrition_percent": 90,
+            "created_at": "2025-12-27T22:24:02.534Z",
+            "stress_level": 4,
+            "stress_source": "sports",
+            "heart_rate": 68,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-27"
+          },
+          {
+            "id": 12,
+            "student_id": 21,
+            "date": "2025-12-26T05:00:00.000Z",
+            "steps": 10110,
+            "sleep_hours": "7.23",
+            "hydration_percent": 85,
+            "nutrition_percent": 89,
+            "created_at": "2025-12-27T22:24:02.535Z",
+            "stress_level": 1,
+            "stress_source": "social",
+            "heart_rate": 78,
+            "mood": "positive",
+            "notes": null
+          },
+          {
+            "id": 13,
+            "student_id": 21,
+            "date": "2025-12-25T05:00:00.000Z",
+            "steps": 3850,
+            "sleep_hours": "7.30",
+            "hydration_percent": 95,
+            "nutrition_percent": 87,
+            "created_at": "2025-12-27T22:24:02.536Z",
+            "stress_level": 5,
+            "stress_source": "social",
+            "heart_rate": 75,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 14,
+            "student_id": 21,
+            "date": "2025-12-24T05:00:00.000Z",
+            "steps": 6612,
+            "sleep_hours": "8.86",
+            "hydration_percent": 92,
+            "nutrition_percent": 73,
+            "created_at": "2025-12-27T22:24:02.537Z",
+            "stress_level": 3,
+            "stress_source": "homework",
+            "heart_rate": 66,
+            "mood": "neutral",
+            "notes": "Daily notes for 2025-12-24"
+          },
+          {
+            "id": 15,
+            "student_id": 21,
+            "date": "2025-12-23T05:00:00.000Z",
+            "steps": 6550,
+            "sleep_hours": "8.87",
+            "hydration_percent": 91,
+            "nutrition_percent": 92,
+            "created_at": "2025-12-27T22:24:02.538Z",
+            "stress_level": 3,
+            "stress_source": "homework",
+            "heart_rate": 82,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 16,
+            "student_id": 21,
+            "date": "2025-12-22T05:00:00.000Z",
+            "steps": 7694,
+            "sleep_hours": "6.86",
+            "hydration_percent": 87,
+            "nutrition_percent": 89,
+            "created_at": "2025-12-27T22:24:02.538Z",
+            "stress_level": 1,
+            "stress_source": "homework",
+            "heart_rate": 99,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 17,
+            "student_id": 21,
+            "date": "2025-12-21T05:00:00.000Z",
+            "steps": 4017,
+            "sleep_hours": "6.76",
+            "hydration_percent": 74,
+            "nutrition_percent": 75,
+            "created_at": "2025-12-27T22:24:02.539Z",
+            "stress_level": 3,
+            "stress_source": "family",
+            "heart_rate": 80,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-21"
+          },
+          {
+            "id": 18,
+            "student_id": 22,
+            "date": "2025-12-27T05:00:00.000Z",
+            "steps": 4226,
+            "sleep_hours": "8.22",
+            "hydration_percent": 71,
+            "nutrition_percent": 84,
+            "created_at": "2025-12-27T22:24:02.540Z",
+            "stress_level": 1,
+            "stress_source": null,
+            "heart_rate": 78,
+            "mood": "neutral",
+            "notes": "Daily notes for 2025-12-27"
+          },
+          {
+            "id": 19,
+            "student_id": 22,
+            "date": "2025-12-26T05:00:00.000Z",
+            "steps": 3272,
+            "sleep_hours": "8.00",
+            "hydration_percent": 85,
+            "nutrition_percent": 76,
+            "created_at": "2025-12-27T22:24:02.542Z",
+            "stress_level": 2,
+            "stress_source": "sports",
+            "heart_rate": 61,
+            "mood": "positive",
+            "notes": null
+          },
+          {
+            "id": 20,
+            "student_id": 22,
+            "date": "2025-12-25T05:00:00.000Z",
+            "steps": 7734,
+            "sleep_hours": "6.82",
+            "hydration_percent": 68,
+            "nutrition_percent": 94,
+            "created_at": "2025-12-27T22:24:02.543Z",
+            "stress_level": 3,
+            "stress_source": "family",
+            "heart_rate": 75,
+            "mood": "positive",
+            "notes": null
+          },
+          {
+            "id": 21,
+            "student_id": 22,
+            "date": "2025-12-24T05:00:00.000Z",
+            "steps": 13371,
+            "sleep_hours": "8.49",
+            "hydration_percent": 88,
+            "nutrition_percent": 80,
+            "created_at": "2025-12-27T22:24:02.544Z",
+            "stress_level": 1,
+            "stress_source": "social",
+            "heart_rate": 66,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-24"
+          },
+          {
+            "id": 22,
+            "student_id": 22,
+            "date": "2025-12-23T05:00:00.000Z",
+            "steps": 7332,
+            "sleep_hours": "7.54",
+            "hydration_percent": 89,
+            "nutrition_percent": 89,
+            "created_at": "2025-12-27T22:24:02.545Z",
+            "stress_level": 2,
+            "stress_source": "sports",
+            "heart_rate": 80,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 23,
+            "student_id": 22,
+            "date": "2025-12-22T05:00:00.000Z",
+            "steps": 10415,
+            "sleep_hours": "6.53",
+            "hydration_percent": 93,
+            "nutrition_percent": 89,
+            "created_at": "2025-12-27T22:24:02.547Z",
+            "stress_level": 5,
+            "stress_source": "grades",
+            "heart_rate": 85,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 24,
+            "student_id": 22,
+            "date": "2025-12-21T05:00:00.000Z",
+            "steps": 10639,
+            "sleep_hours": "7.44",
+            "hydration_percent": 80,
+            "nutrition_percent": 81,
+            "created_at": "2025-12-27T22:24:02.548Z",
+            "stress_level": 2,
+            "stress_source": "exams",
+            "heart_rate": 73,
+            "mood": "positive",
+            "notes": "Daily notes for 2025-12-21"
+          },
+          {
+            "id": 25,
+            "student_id": 23,
+            "date": "2025-12-27T05:00:00.000Z",
+            "steps": 13320,
+            "sleep_hours": "7.01",
+            "hydration_percent": 70,
+            "nutrition_percent": 82,
+            "created_at": "2025-12-27T22:24:02.550Z",
+            "stress_level": 1,
+            "stress_source": "friends",
+            "heart_rate": 92,
+            "mood": "negative",
+            "notes": "Daily notes for 2025-12-27"
+          },
+          {
+            "id": 26,
+            "student_id": 23,
+            "date": "2025-12-26T05:00:00.000Z",
+            "steps": 10550,
+            "sleep_hours": "7.26",
+            "hydration_percent": 74,
+            "nutrition_percent": 99,
+            "created_at": "2025-12-27T22:24:02.551Z",
+            "stress_level": 1,
+            "stress_source": "family",
+            "heart_rate": 100,
+            "mood": "positive",
+            "notes": null
+          },
+          {
+            "id": 27,
+            "student_id": 23,
+            "date": "2025-12-25T05:00:00.000Z",
+            "steps": 4741,
+            "sleep_hours": "8.69",
+            "hydration_percent": 92,
+            "nutrition_percent": 93,
+            "created_at": "2025-12-27T22:24:02.552Z",
+            "stress_level": 3,
+            "stress_source": "grades",
+            "heart_rate": 73,
+            "mood": "negative",
+            "notes": null
+          },
+          {
+            "id": 28,
+            "student_id": 23,
+            "date": "2025-12-24T05:00:00.000Z",
+            "steps": 12600,
+            "sleep_hours": "9.33",
+            "hydration_percent": 70,
+            "nutrition_percent": 98,
+            "created_at": "2025-12-27T22:24:02.553Z",
+            "stress_level": 4,
+            "stress_source": "social",
+            "heart_rate": 61,
+            "mood": "negative",
+            "notes": "Daily notes for 2025-12-24"
+          },
+          {
+            "id": 29,
+            "student_id": 23,
+            "date": "2025-12-23T05:00:00.000Z",
+            "steps": 13694,
+            "sleep_hours": "6.70",
+            "hydration_percent": 82,
+            "nutrition_percent": 98,
+            "created_at": "2025-12-27T22:24:02.554Z",
+            "stress_level": 4,
+            "stress_source": "family",
+            "heart_rate": 66,
+            "mood": "positive",
+            "notes": null
+          },
+          {
+            "id": 30,
+            "student_id": 23,
+            "date": "2025-12-22T05:00:00.000Z",
+            "steps": 6090,
+            "sleep_hours": "8.80",
+            "hydration_percent": 83,
+            "nutrition_percent": 88,
+            "created_at": "2025-12-27T22:24:02.555Z",
+            "stress_level": 4,
+            "stress_source": "friends",
+            "heart_rate": 62,
+            "mood": "neutral",
+            "notes": null
+          },
+          {
+            "id": 31,
+            "student_id": 23,
+            "date": "2025-12-21T05:00:00.000Z",
+            "steps": 10319,
+            "sleep_hours": "7.77",
+            "hydration_percent": 77,
+            "nutrition_percent": 77,
+            "created_at": "2025-12-27T22:24:02.555Z",
+            "stress_level": 2,
+            "stress_source": "sports",
+            "heart_rate": 76,
+            "mood": "negative",
+            "notes": "Daily notes for 2025-12-21"
+          }
+        ]
+      },
+      "wellness_scores": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('wellness_scores_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "score",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_DATE",
+            "position": 4
+          },
+          {
+            "name": "sentiment",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 6
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "wellness_scores_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "wellness_scores",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "wellness_scores_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 20,
+            "score": 68,
+            "date": "2025-12-27T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:23:57.945Z"
+          },
+          {
+            "id": 2,
+            "student_id": 20,
+            "score": 91,
+            "date": "2025-12-27T05:00:00.000Z",
+            "sentiment": "negative",
+            "created_at": "2025-12-27T22:24:02.526Z"
+          },
+          {
+            "id": 3,
+            "student_id": 20,
+            "score": 93,
+            "date": "2025-12-24T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:24:02.529Z"
+          },
+          {
+            "id": 4,
+            "student_id": 20,
+            "score": 88,
+            "date": "2025-12-21T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:24:02.532Z"
+          },
+          {
+            "id": 5,
+            "student_id": 21,
+            "score": 64,
+            "date": "2025-12-27T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:24:02.535Z"
+          },
+          {
+            "id": 6,
+            "student_id": 21,
+            "score": 94,
+            "date": "2025-12-24T05:00:00.000Z",
+            "sentiment": "positive",
+            "created_at": "2025-12-27T22:24:02.537Z"
+          },
+          {
+            "id": 7,
+            "student_id": 21,
+            "score": 83,
+            "date": "2025-12-21T05:00:00.000Z",
+            "sentiment": "negative",
+            "created_at": "2025-12-27T22:24:02.539Z"
+          },
+          {
+            "id": 8,
+            "student_id": 22,
+            "score": 100,
+            "date": "2025-12-27T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:24:02.541Z"
+          },
+          {
+            "id": 9,
+            "student_id": 22,
+            "score": 67,
+            "date": "2025-12-24T05:00:00.000Z",
+            "sentiment": "positive",
+            "created_at": "2025-12-27T22:24:02.544Z"
+          },
+          {
+            "id": 10,
+            "student_id": 22,
+            "score": 72,
+            "date": "2025-12-21T05:00:00.000Z",
+            "sentiment": "negative",
+            "created_at": "2025-12-27T22:24:02.548Z"
+          },
+          {
+            "id": 11,
+            "student_id": 23,
+            "score": 83,
+            "date": "2025-12-27T05:00:00.000Z",
+            "sentiment": "positive",
+            "created_at": "2025-12-27T22:24:02.551Z"
+          },
+          {
+            "id": 12,
+            "student_id": 23,
+            "score": 62,
+            "date": "2025-12-24T05:00:00.000Z",
+            "sentiment": "positive",
+            "created_at": "2025-12-27T22:24:02.554Z"
+          },
+          {
+            "id": 13,
+            "student_id": 23,
+            "score": 89,
+            "date": "2025-12-21T05:00:00.000Z",
+            "sentiment": "neutral",
+            "created_at": "2025-12-27T22:24:02.556Z"
+          }
+        ]
+      },
+      "wearable_data": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('wearable_data_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "heart_rate",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "temperature",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 4,
+            "scale": 2,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "sleep_hours",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 4,
+            "scale": 2,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 8
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "wearable_data_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "wearable_data",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "wearable_data_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "heart_rate": 85,
+            "temperature": "37.41",
+            "steps": 3195,
+            "sleep_hours": "6.51",
+            "created_at": "2025-12-27T22:23:57.944Z"
+          },
+          {
+            "id": 2,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "heart_rate": 97,
+            "temperature": "36.78",
+            "steps": 13645,
+            "sleep_hours": "8.95",
+            "created_at": "2025-12-27T22:23:57.952Z"
+          },
+          {
+            "id": 3,
+            "student_id": 20,
+            "date": "2025-12-27T05:00:00.000Z",
+            "heart_rate": 62,
+            "temperature": "37.33",
+            "steps": 13624,
+            "sleep_hours": "8.99",
+            "created_at": "2025-12-27T22:24:02.525Z"
+          },
+          {
+            "id": 4,
+            "student_id": 20,
+            "date": "2025-12-25T05:00:00.000Z",
+            "heart_rate": 84,
+            "temperature": "36.68",
+            "steps": 3545,
+            "sleep_hours": "8.00",
+            "created_at": "2025-12-27T22:24:02.528Z"
+          },
+          {
+            "id": 5,
+            "student_id": 20,
+            "date": "2025-12-23T05:00:00.000Z",
+            "heart_rate": 79,
+            "temperature": "36.60",
+            "steps": 14542,
+            "sleep_hours": "7.64",
+            "created_at": "2025-12-27T22:24:02.530Z"
+          },
+          {
+            "id": 6,
+            "student_id": 20,
+            "date": "2025-12-21T05:00:00.000Z",
+            "heart_rate": 90,
+            "temperature": "37.13",
+            "steps": 14170,
+            "sleep_hours": "8.28",
+            "created_at": "2025-12-27T22:24:02.532Z"
+          },
+          {
+            "id": 7,
+            "student_id": 21,
+            "date": "2025-12-27T05:00:00.000Z",
+            "heart_rate": 68,
+            "temperature": "36.61",
+            "steps": 3714,
+            "sleep_hours": "7.20",
+            "created_at": "2025-12-27T22:24:02.534Z"
+          },
+          {
+            "id": 8,
+            "student_id": 21,
+            "date": "2025-12-25T05:00:00.000Z",
+            "heart_rate": 75,
+            "temperature": "37.33",
+            "steps": 3850,
+            "sleep_hours": "7.30",
+            "created_at": "2025-12-27T22:24:02.536Z"
+          },
+          {
+            "id": 9,
+            "student_id": 21,
+            "date": "2025-12-23T05:00:00.000Z",
+            "heart_rate": 82,
+            "temperature": "37.16",
+            "steps": 6550,
+            "sleep_hours": "8.87",
+            "created_at": "2025-12-27T22:24:02.538Z"
+          },
+          {
+            "id": 10,
+            "student_id": 21,
+            "date": "2025-12-21T05:00:00.000Z",
+            "heart_rate": 80,
+            "temperature": "36.69",
+            "steps": 4017,
+            "sleep_hours": "6.76",
+            "created_at": "2025-12-27T22:24:02.539Z"
+          },
+          {
+            "id": 11,
+            "student_id": 22,
+            "date": "2025-12-27T05:00:00.000Z",
+            "heart_rate": 78,
+            "temperature": "37.33",
+            "steps": 4226,
+            "sleep_hours": "8.22",
+            "created_at": "2025-12-27T22:24:02.540Z"
+          },
+          {
+            "id": 12,
+            "student_id": 22,
+            "date": "2025-12-25T05:00:00.000Z",
+            "heart_rate": 75,
+            "temperature": "36.51",
+            "steps": 7734,
+            "sleep_hours": "6.82",
+            "created_at": "2025-12-27T22:24:02.543Z"
+          },
+          {
+            "id": 13,
+            "student_id": 22,
+            "date": "2025-12-23T05:00:00.000Z",
+            "heart_rate": 80,
+            "temperature": "36.58",
+            "steps": 7332,
+            "sleep_hours": "7.54",
+            "created_at": "2025-12-27T22:24:02.545Z"
+          },
+          {
+            "id": 14,
+            "student_id": 22,
+            "date": "2025-12-21T05:00:00.000Z",
+            "heart_rate": 73,
+            "temperature": "37.30",
+            "steps": 10639,
+            "sleep_hours": "7.44",
+            "created_at": "2025-12-27T22:24:02.548Z"
+          },
+          {
+            "id": 15,
+            "student_id": 23,
+            "date": "2025-12-27T05:00:00.000Z",
+            "heart_rate": 92,
+            "temperature": "37.35",
+            "steps": 13320,
+            "sleep_hours": "7.01",
+            "created_at": "2025-12-27T22:24:02.550Z"
+          },
+          {
+            "id": 16,
+            "student_id": 23,
+            "date": "2025-12-25T05:00:00.000Z",
+            "heart_rate": 73,
+            "temperature": "37.46",
+            "steps": 4741,
+            "sleep_hours": "8.69",
+            "created_at": "2025-12-27T22:24:02.553Z"
+          },
+          {
+            "id": 17,
+            "student_id": 23,
+            "date": "2025-12-23T05:00:00.000Z",
+            "heart_rate": 66,
+            "temperature": "37.06",
+            "steps": 13694,
+            "sleep_hours": "6.70",
+            "created_at": "2025-12-27T22:24:02.554Z"
+          },
+          {
+            "id": 18,
+            "student_id": 23,
+            "date": "2025-12-21T05:00:00.000Z",
+            "heart_rate": 76,
+            "temperature": "36.53",
+            "steps": 10319,
+            "sleep_hours": "7.77",
+            "created_at": "2025-12-27T22:24:02.556Z"
+          }
+        ]
+      },
+      "symptom_logs": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('symptom_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_DATE",
+            "position": 3
+          },
+          {
+            "name": "symptom_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "severity",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "symptom_logs_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "symptom_logs",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "symptom_logs_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": []
+      },
+      "assistance_requests": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('assistance_requests_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "parent_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "urgency",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "'pending'::character varying",
+            "position": 7
+          },
+          {
+            "name": "handled_by",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "handled_by_name",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "handled_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 10
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 11
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 12
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 13
+          },
+          {
+            "name": "request_type",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "'single'::character varying",
+            "position": 14
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "assistance_requests_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "assistance_requests",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "assistance_requests_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "assistance_requests_parent_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "parent_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "assistance_requests_handled_by_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "handled_by",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 22,
+            "parent_id": 51,
+            "parent_name": "Wei Chen",
+            "message": "Noticed changes in behavior",
+            "urgency": "high",
+            "status": "pending",
+            "handled_by": null,
+            "handled_by_name": null,
+            "handled_at": null,
+            "notes": null,
+            "created_at": "2025-12-21T05:00:00.000Z",
+            "updated_at": "2025-12-27T22:24:02.549Z",
+            "request_type": "single"
+          },
+          {
+            "id": 2,
+            "student_id": 23,
+            "parent_id": 52,
+            "parent_name": "Robert Anderson",
+            "message": "Noticed changes in behavior",
+            "urgency": "high",
+            "status": "pending",
+            "handled_by": null,
+            "handled_by_name": null,
+            "handled_at": null,
+            "notes": null,
+            "created_at": "2025-12-23T05:00:00.000Z",
+            "updated_at": "2025-12-27T22:24:02.557Z",
+            "request_type": "single"
+          },
+          {
+            "id": 3,
+            "student_id": 23,
+            "parent_id": 52,
+            "parent_name": "Robert Anderson",
+            "message": "I've noticed that my child Michael has been showing some changes in behavior recently. He seems more withdrawn than usual and has mentioned feeling stressed about schoolwork. I would appreciate if someone could check in with him and see how he's doing. Thank you.",
+            "urgency": "normal",
+            "status": "pending",
+            "handled_by": null,
+            "handled_by_name": null,
+            "handled_at": null,
+            "notes": null,
+            "created_at": "2025-12-28T19:11:34.949Z",
+            "updated_at": "2025-12-28T19:11:34.949Z",
+            "request_type": "single"
+          }
+        ]
+      },
+      "assistance_request_students": {
+        "schema": [],
+        "constraints": [],
+        "data": []
+      },
+      "emergency_alerts": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('emergency_alerts_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "alert_type",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": "'emergency'::character varying",
+            "position": 3
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": "'active'::character varying",
+            "position": 5
+          },
+          {
+            "name": "acknowledged_by",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "acknowledged_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "resolved_by",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "resolved_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "resolution_notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 10
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 11
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 12
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "emergency_alerts_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "emergency_alerts",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "emergency_alerts_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "emergency_alerts_acknowledged_by_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "acknowledged_by",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "emergency_alerts_resolved_by_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "resolved_by",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": []
+      },
+      "audit_logs": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('audit_logs_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "user_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "user_role",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "action_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "resource_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "resource_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "details",
+            "type": "jsonb",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "ip_address",
+            "type": "character varying",
+            "maxLength": 45,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "user_agent",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 10
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "audit_logs_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "audit_logs",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "audit_logs_user_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "user_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 32,
+            "details": {
+              "studentName": "null null",
+              "studentEmail": "test.student2@mindaigle.com",
+              "reminderSentAt": "2025-12-28T20:18:47.827Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.828Z"
+          },
+          {
+            "id": 2,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 33,
+            "details": {
+              "studentName": "Vaishnavi Perka",
+              "studentEmail": "perka@gmail.com",
+              "reminderSentAt": "2025-12-28T20:18:47.831Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.832Z"
+          },
+          {
+            "id": 3,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 34,
+            "details": {
+              "studentName": "Vishnu priya   Kasarla ",
+              "studentEmail": "kasarlavyshnavipriy@gmail.com",
+              "reminderSentAt": "2025-12-28T20:18:47.833Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.834Z"
+          },
+          {
+            "id": 4,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 35,
+            "details": {
+              "studentName": "null null",
+              "studentEmail": "test.student@mindaigle.com",
+              "reminderSentAt": "2025-12-28T20:18:47.834Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.835Z"
+          },
+          {
+            "id": 5,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 36,
+            "details": {
+              "studentName": "null null",
+              "studentEmail": "ajay.varma@mtu.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.835Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.836Z"
+          },
+          {
+            "id": 6,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 37,
+            "details": {
+              "studentName": "Laharika  Mamidi",
+              "studentEmail": "laharika@gmail.com",
+              "reminderSentAt": "2025-12-28T20:18:47.836Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.837Z"
+          },
+          {
+            "id": 7,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 24,
+            "details": {
+              "studentName": "Olivia Williams",
+              "studentEmail": "olivia.williams@houghton.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.839Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.839Z"
+          },
+          {
+            "id": 8,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 25,
+            "details": {
+              "studentName": "Noah Brown",
+              "studentEmail": "noah.brown@houghton.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.839Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.840Z"
+          },
+          {
+            "id": 9,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 26,
+            "details": {
+              "studentName": "Ava Davis",
+              "studentEmail": "ava.davis@houghton.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.840Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.841Z"
+          },
+          {
+            "id": 10,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 27,
+            "details": {
+              "studentName": "Liam Garcia",
+              "studentEmail": "liam.garcia@houghton.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.841Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.842Z"
+          },
+          {
+            "id": 11,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 28,
+            "details": {
+              "studentName": "Isabella Rodriguez",
+              "studentEmail": "isabella.rodriguez@calumet.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.842Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.842Z"
+          },
+          {
+            "id": 12,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 29,
+            "details": {
+              "studentName": "Ethan Wilson",
+              "studentEmail": "ethan.wilson@calumet.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.843Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.844Z"
+          },
+          {
+            "id": 13,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 30,
+            "details": {
+              "studentName": "Mia Moore",
+              "studentEmail": "mia.moore@calumet.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.844Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.845Z"
+          },
+          {
+            "id": 14,
+            "user_id": null,
+            "user_role": "system",
+            "action_type": "SEND_REMINDER",
+            "resource_type": "student",
+            "resource_id": 31,
+            "details": {
+              "studentName": "Lucas Taylor",
+              "studentEmail": "lucas.taylor@calumet.edu",
+              "reminderSentAt": "2025-12-28T20:18:47.846Z",
+              "lastCheckinDate": null
+            },
+            "ip_address": null,
+            "user_agent": null,
+            "created_at": "2025-12-28T20:18:47.846Z"
+          }
+        ]
+      },
+      "appointments": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('appointments_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "staff_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "parent_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "appointment_date",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "duration",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": "30",
+            "position": 6
+          },
+          {
+            "name": "type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": "'general'::character varying",
+            "position": 7
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": "'pending'::character varying",
+            "position": 9
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 10
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 11
+          },
+          {
+            "name": "created_by",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 12
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "appointments_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "appointments",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "appointments_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "appointments_staff_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "staff_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "appointments_parent_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "parent_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "appointments_created_by_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "created_by",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 23,
+            "staff_id": null,
+            "parent_id": null,
+            "appointment_date": "2025-12-31T15:30:00.000Z",
+            "duration": 30,
+            "type": "Check-in",
+            "notes": null,
+            "status": "pending",
+            "created_at": "2025-12-28T19:33:45.237Z",
+            "updated_at": "2025-12-28T19:33:45.237Z",
+            "created_by": null
+          }
+        ]
+      },
+      "resources": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('resources_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "category",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "name",
+            "type": "character varying",
+            "maxLength": 255,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "address",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "phone",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "distance_km",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 6,
+            "scale": 2,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "latitude",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 10,
+            "scale": 8,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 7
+          },
+          {
+            "name": "longitude",
+            "type": "numeric",
+            "maxLength": null,
+            "precision": 11,
+            "scale": 8,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 8
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 9
+          },
+          {
+            "name": "operating_hours",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 10
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 11
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "resources_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "resources",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": []
+      },
+      "activity_timeline": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('activity_timeline_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "actor_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "action_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "summary",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "details",
+            "type": "jsonb",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 7
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "activity_timeline_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "activity_timeline",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "activity_timeline_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "activity_timeline_actor_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "actor_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": [
+          {
+            "id": 1,
+            "student_id": 23,
+            "actor_id": null,
+            "action_type": "appointment_scheduled",
+            "summary": "Appointment scheduled: Check-in on 12/31/2025",
+            "details": {
+              "appointment_id": 1
+            },
+            "created_at": "2025-12-28T19:33:45.239Z"
+          }
+        ]
+      },
+      "counselor_notes": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('counselor_notes_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "counselor_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "note_text",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 5
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 6
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "counselor_notes_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "counselor_notes",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "counselor_notes_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "counselor_notes_counselor_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "counselor_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": []
+      },
+      "interventions": {
+        "schema": [
+          {
+            "name": "id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": false,
+            "defaultValue": "nextval('interventions_id_seq'::regclass)",
+            "position": 1
+          },
+          {
+            "name": "student_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 2
+          },
+          {
+            "name": "counselor_id",
+            "type": "integer",
+            "maxLength": null,
+            "precision": 32,
+            "scale": 0,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 3
+          },
+          {
+            "name": "intervention_type",
+            "type": "character varying",
+            "maxLength": 100,
+            "precision": null,
+            "scale": null,
+            "nullable": false,
+            "defaultValue": null,
+            "position": 4
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 5
+          },
+          {
+            "name": "outcome",
+            "type": "text",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": null,
+            "position": 6
+          },
+          {
+            "name": "status",
+            "type": "character varying",
+            "maxLength": 50,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "'active'::character varying",
+            "position": 7
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 8
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "maxLength": null,
+            "precision": null,
+            "scale": null,
+            "nullable": true,
+            "defaultValue": "CURRENT_TIMESTAMP",
+            "position": 9
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "interventions_pkey",
+            "constraint_type": "PRIMARY KEY",
+            "column_name": "id",
+            "foreign_table_name": "interventions",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "interventions_student_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "student_id",
+            "foreign_table_name": "students",
+            "foreign_column_name": "id"
+          },
+          {
+            "constraint_name": "interventions_counselor_id_fkey",
+            "constraint_type": "FOREIGN KEY",
+            "column_name": "counselor_id",
+            "foreign_table_name": "users",
+            "foreign_column_name": "id"
+          }
+        ],
+        "data": []
+      }
+    }
+  }
+}

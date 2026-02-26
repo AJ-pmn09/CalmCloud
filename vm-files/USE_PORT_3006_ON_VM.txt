@@ -1,0 +1,50 @@
+================================================================================
+  How to run the backend on port 3006 on the VM (so app can use 3006)
+================================================================================
+
+NOTE: On some VM setups, port 3006 is used by the FRONTEND (Vite/React dashboard).
+If "curl http://localhost:3006/api/health" returns HTML instead of JSON, then 3006
+is the frontend—use the BACKEND port from START_ALL output instead (e.g. 3009).
+The app is configured for 3009 in that case; just open firewall for 3009.
+================================================================================
+
+The app is currently set to port 3009 so it matches your latest START_ALL output.
+If you want the backend to always use 3006 instead:
+
+--- Option A: Set PORT in .env on the VM ---
+
+  ssh vkasarla@192.168.100.6
+  echo 'PORT=3006' >> /home/vkasarla/Desktop/K-12/.env
+
+Then stop and start again (so 3003/3006 are free, or the start script uses PORT):
+
+  cd /home/vkasarla/Desktop/K-12
+  ./STOP_ALL.sh
+  ./START_ALL.sh
+
+Check output: it should say "Backend API: http://localhost:3006/api".
+Then in the app's build.gradle.kts set SERVER_PORT back to "3006" and rebuild.
+
+--- Option B: Free ports 3003 and 3006, then start ---
+
+On the VM, find what is using 3003 (and 3006 if needed):
+
+  ss -tlnp | grep -E '3003|3006'
+
+Stop those processes or stop the old backend, then:
+
+  cd /home/vkasarla/Desktop/K-12
+  ./START_ALL.sh
+
+If the script tries 3003 first and it's free, it may still pick 3003. So either
+set PORT=3006 in .env (Option A) or edit the VM's start-backend-host.sh to use
+PORT=3006 when starting node.
+
+--- Open firewall for the port you use ---
+
+  sudo firewall-cmd --zone=public --add-port=3009/tcp --permanent   # current
+  # or
+  sudo firewall-cmd --zone=public --add-port=3006/tcp --permanent   # if you use 3006
+  sudo firewall-cmd --reload
+
+================================================================================

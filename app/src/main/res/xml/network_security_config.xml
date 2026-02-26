@@ -7,11 +7,28 @@
         <domain includeSubdomains="true">127.0.0.1</domain>
     </domain-config>
     
-    <!-- For production, use HTTPS only -->
-    <base-config cleartextTrafficPermitted="false">
+    <!-- Allow cleartext traffic for production server -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Public server IP - accessible from any network -->
+        <domain includeSubdomains="true">141.219.186.173</domain>
+        <!-- VM server IP - local network -->
+        <domain includeSubdomains="true">192.168.100.6</domain>
+    </domain-config>
+    
+    <!-- Allow cleartext traffic for remote servers (development/testing) -->
+    <!-- For production, remove this and use HTTPS only -->
+    <base-config cleartextTrafficPermitted="true">
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
     </base-config>
+    
+    <!-- Allow HTTPS traffic for tunnel URLs (localtunnel) -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">loca.lt</domain>
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
 </network-security-config>
 
